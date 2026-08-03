@@ -1,0 +1,1773 @@
+{
+    "version": 0,
+    "date": "2026-07-22 01:26:28",
+    "url": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/",
+    "manifest": {
+        "author": "Yomidevs",
+        "browser_specific_settings": {
+            "gecko": {
+                "admin_install_only": null,
+                "data_collection_permissions": null,
+                "id": "{6b733b82-9261-47ee-a595-2dda294a4d08}",
+                "strict_max_version": null,
+                "strict_min_version": "115.0",
+                "update_url": null
+            },
+            "gecko_android": {
+                "strict_max_version": null,
+                "strict_min_version": "115.0"
+            }
+        },
+        "description": "Popup dictionary for language learning",
+        "developer": null,
+        "homepage_url": null,
+        "install_origins": null,
+        "manifest_version": 3,
+        "name": "Yomitan Popup Dictionary",
+        "short_name": null,
+        "version": "26.6.15.0",
+        "background": {
+            "page": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/background.html",
+            "preferred_environment": null,
+            "scripts": null,
+            "service_worker": null,
+            "type": null
+        },
+        "content_scripts": [
+            {
+                "all_frames": true,
+                "css": null,
+                "css_origin": "author",
+                "exclude_globs": null,
+                "exclude_matches": null,
+                "include_globs": null,
+                "js": [
+                    "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/js/app/content-script-wrapper.js"
+                ],
+                "match_about_blank": true,
+                "match_origin_as_fallback": null,
+                "matches": [
+                    "http://*/*",
+                    "https://*/*",
+                    "file://*/*"
+                ],
+                "run_at": "document_idle",
+                "world": "ISOLATED"
+            }
+        ],
+        "content_security_policy": {
+            "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; img-src blob: 'self'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *"
+        },
+        "granted_host_permissions": false,
+        "hidden": false,
+        "host_permissions": [
+            "<all_urls>"
+        ],
+        "icons": {
+            "16": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon16.png",
+            "19": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon19.png",
+            "32": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon32.png",
+            "38": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon38.png",
+            "48": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon48.png",
+            "64": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon64.png",
+            "128": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon128.png"
+        },
+        "incognito": "spanning",
+        "minimum_chrome_version": "102.0.0.0",
+        "minimum_opera_version": null,
+        "optional_host_permissions": [],
+        "optional_permissions": [
+            "clipboardRead",
+            "nativeMessaging"
+        ],
+        "options_page": null,
+        "options_ui": {
+            "browser_style": false,
+            "open_in_tab": true,
+            "page": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/settings.html"
+        },
+        "permissions": [
+            "storage",
+            "clipboardWrite",
+            "unlimitedStorage",
+            "declarativeNetRequest",
+            "scripting",
+            "contextMenus"
+        ],
+        "web_accessible_resources": [
+            {
+                "extension_ids": null,
+                "matches": [
+                    "<all_urls>"
+                ],
+                "resources": [
+                    "/popup.html",
+                    "/js/*",
+                    "/lib/resvg.wasm"
+                ]
+            }
+        ],
+        "chrome_settings_overrides": null,
+        "action": {
+            "browser_style": false,
+            "default_area": null,
+            "default_icon": {
+                "16": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon16.png",
+                "19": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon19.png",
+                "32": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon32.png",
+                "38": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon38.png",
+                "48": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon48.png",
+                "64": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon64.png",
+                "128": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon128.png"
+            },
+            "default_popup": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/action-popup.html",
+            "default_title": "Yomitan",
+            "theme_icons": null
+        },
+        "commands": {
+            "toggleTextScanning": {
+                "description": "Toggle text scanning on/off",
+                "suggested_key": {
+                    "additionalProperties": null,
+                    "android": null,
+                    "chromeos": null,
+                    "default": "Alt+Delete",
+                    "ios": null,
+                    "linux": null,
+                    "mac": null,
+                    "windows": null
+                }
+            },
+            "openInfoPage": {
+                "description": "Open the info page",
+                "suggested_key": null
+            },
+            "openSettingsPage": {
+                "description": "Open the settings page",
+                "suggested_key": null
+            },
+            "openSearchPage": {
+                "description": "Open the search page in a new tab",
+                "suggested_key": {
+                    "additionalProperties": null,
+                    "android": null,
+                    "chromeos": null,
+                    "default": "Alt+Insert",
+                    "ios": null,
+                    "linux": null,
+                    "mac": null,
+                    "windows": null
+                }
+            },
+            "openSearchPageCurrentTab": {
+                "description": "Open the search page in the current tab",
+                "suggested_key": null
+            },
+            "openPopupWindow": {
+                "description": "Open the popup window",
+                "suggested_key": null
+            }
+        },
+        "devtools_page": null,
+        "page_action": null,
+        "sidebar_action": null,
+        "omnibox": {
+            "keyword": "yomi"
+        },
+        "chrome_url_overrides": null,
+        "declarative_net_request": null,
+        "default_locale": null,
+        "l10n_resources": null,
+        "protocol_handlers": null,
+        "theme_experiment": null,
+        "experiment_apis": null,
+        "applications": {
+            "gecko": {
+                "admin_install_only": null,
+                "data_collection_permissions": null,
+                "id": "{6b733b82-9261-47ee-a595-2dda294a4d08}",
+                "strict_max_version": null,
+                "strict_min_version": "115.0",
+                "update_url": null
+            },
+            "gecko_android": {
+                "strict_max_version": null,
+                "strict_min_version": "115.0"
+            }
+        }
+    },
+    "environment": {
+        "browser": "firefox",
+        "platform": {
+            "os": "win"
+        }
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:152.0) Gecko/20100101 Firefox/152.0",
+    "permissions": {
+        "origins": [
+            "<all_urls>",
+            "http://*/*",
+            "https://*/*",
+            "file://*/*"
+        ],
+        "data_collection": [],
+        "permissions": [
+            "storage",
+            "clipboardWrite",
+            "unlimitedStorage",
+            "declarativeNetRequest",
+            "scripting",
+            "contextMenus",
+            "clipboardRead",
+            "nativeMessaging"
+        ]
+    },
+    "options": {
+        "version": 77,
+        "profiles": [
+            {
+                "name": "Japanese",
+                "conditionGroups": [],
+                "options": {
+                    "general": {
+                        "enable": true,
+                        "language": "ja",
+                        "resultOutputMode": "group",
+                        "debugInfo": false,
+                        "maxResults": 32,
+                        "showAdvanced": true,
+                        "showDebug": false,
+                        "popupDisplayMode": "default",
+                        "popupWidth": 400,
+                        "popupHeight": 250,
+                        "popupHorizontalOffset": 0,
+                        "popupVerticalOffset": 10,
+                        "popupHorizontalOffset2": 10,
+                        "popupVerticalOffset2": 0,
+                        "popupHorizontalTextPosition": "below",
+                        "popupVerticalTextPosition": "before",
+                        "popupScalingFactor": 1,
+                        "popupScaleRelativeToPageZoom": true,
+                        "popupScaleRelativeToVisualViewport": false,
+                        "showGuide": false,
+                        "enableContextMenuScanSelected": false,
+                        "compactTags": true,
+                        "averageFrequency": true,
+                        "glossaryLayoutMode": "compact-popup-anki",
+                        "mainDictionary": "Jitendex.org [2026-04-04]",
+                        "popupTheme": "dark",
+                        "popupOuterTheme": "light",
+                        "customPopupCss": "",
+                        "customPopupOuterCss": "",
+                        "enableWanakana": true,
+                        "showPitchAccentDownstepNotation": true,
+                        "showPitchAccentPositionNotation": false,
+                        "showPitchAccentGraph": true,
+                        "showIframePopupsInRootFrame": true,
+                        "useSecurePopupFrameUrl": true,
+                        "usePopupShadowDom": true,
+                        "usePopupWindow": false,
+                        "popupCurrentIndicatorMode": "none",
+                        "popupActionBarVisibility": "auto",
+                        "popupActionBarLocation": "top",
+                        "frequencyDisplayMode": "split-tags-grouped",
+                        "termDisplayMode": "ruby",
+                        "sortFrequencyDictionary": "Jiten",
+                        "sortFrequencyDictionaryOrder": "ascending",
+                        "stickySearchHeader": false,
+                        "fontFamily": "",
+                        "fontSize": 14,
+                        "lineHeight": "1.5",
+                        "enableYomitanApi": true,
+                        "yomitanApiServer": "http://127.0.0.1:19633",
+                        "yomitanApiAllowCssSanitizationBypass": false,
+                        "popupFullWidthPosition": "bottom"
+                    },
+                    "popupWindow": {
+                        "width": 400,
+                        "height": 250,
+                        "left": 0,
+                        "top": 0,
+                        "useLeft": false,
+                        "useTop": false,
+                        "windowType": "popup",
+                        "windowState": "normal"
+                    },
+                    "audio": {
+                        "enabled": true,
+                        "volume": 100,
+                        "autoPlay": false,
+                        "fallbackSoundType": "none",
+                        "sources": [],
+                        "enableDefaultAudioSources": true
+                    },
+                    "scanning": {
+                        "inputs": [
+                            {
+                                "include": "shift",
+                                "exclude": "mouse0",
+                                "types": {
+                                    "mouse": true,
+                                    "touch": false,
+                                    "pen": false
+                                },
+                                "options": {
+                                    "showAdvanced": false,
+                                    "searchTerms": true,
+                                    "searchKanji": true,
+                                    "scanOnTouchTap": true,
+                                    "scanOnTouchMove": false,
+                                    "scanOnTouchPress": false,
+                                    "scanOnTouchRelease": false,
+                                    "scanOnPenMove": true,
+                                    "scanOnPenHover": false,
+                                    "scanOnPenReleaseHover": false,
+                                    "scanOnPenPress": true,
+                                    "scanOnPenRelease": false,
+                                    "preventTouchScrolling": false,
+                                    "preventPenScrolling": false,
+                                    "minimumTouchTime": 0
+                                }
+                            },
+                            {
+                                "include": "",
+                                "exclude": "",
+                                "types": {
+                                    "mouse": false,
+                                    "touch": true,
+                                    "pen": true
+                                },
+                                "options": {
+                                    "showAdvanced": false,
+                                    "searchTerms": true,
+                                    "searchKanji": true,
+                                    "scanOnTouchTap": true,
+                                    "scanOnTouchMove": false,
+                                    "scanOnTouchPress": false,
+                                    "scanOnTouchRelease": false,
+                                    "scanOnPenMove": true,
+                                    "scanOnPenHover": false,
+                                    "scanOnPenReleaseHover": false,
+                                    "scanOnPenPress": true,
+                                    "scanOnPenRelease": false,
+                                    "preventTouchScrolling": true,
+                                    "preventPenScrolling": true,
+                                    "minimumTouchTime": 0
+                                }
+                            }
+                        ],
+                        "preventMiddleMouse": {
+                            "onTextHover": null,
+                            "onWebPages": false,
+                            "onPopupPages": false,
+                            "onSearchPages": false,
+                            "onSearchQuery": false
+                        },
+                        "preventBackForward": {
+                            "onTextHover": null,
+                            "onWebPages": false,
+                            "onPopupPages": false,
+                            "onSearchPages": false,
+                            "onSearchQuery": false
+                        },
+                        "selectText": true,
+                        "alphanumeric": true,
+                        "autoHideResults": false,
+                        "delay": 20,
+                        "hideDelay": 0,
+                        "length": 16,
+                        "deepDomScan": false,
+                        "popupNestingMaxDepth": 30,
+                        "enablePopupSearch": false,
+                        "enableOnPopupExpressions": false,
+                        "enableOnSearchPage": true,
+                        "enableSearchTags": false,
+                        "layoutAwareScan": true,
+                        "matchTypePrefix": false,
+                        "hidePopupOnCursorExit": false,
+                        "hidePopupOnCursorExitDelay": 0,
+                        "reducedMotionScrolling": false,
+                        "reducedMotionScrollingScale": 1,
+                        "reducedMotionScrollingSwipeThreshold": 40,
+                        "normalizeCssZoom": true,
+                        "scanWithoutMousemove": true,
+                        "scanResolution": "character"
+                    },
+                    "translation": {
+                        "textReplacements": {
+                            "searchOriginal": true,
+                            "groups": []
+                        },
+                        "searchResolution": "letter"
+                    },
+                    "dictionaries": [
+                        {
+                            "name": "Jitendex.org [2026-04-04]",
+                            "alias": "Jitendex.org [2026-04-04]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n"
+                        },
+                        {
+                            "name": "JPDBv2㋕",
+                            "alias": "JPDBv2㋕",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BCCWJ",
+                            "alias": "BCCWJ",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "KANJIDIC [2026-178]",
+                            "alias": "KANJIDIC [2026-178]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "Jiten",
+                            "alias": "Jiten",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "JMnedict [2026-06-27]",
+                            "alias": "JMnedict [2026-06-27]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "アクセント辞典",
+                            "alias": "アクセント辞典",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "CC-CEDICT [2026-06-29]",
+                            "alias": "CC-CEDICT [2026-06-29]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "500idioms",
+                            "alias": "500idioms",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BLCUcoll",
+                            "alias": "BLCUcoll",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BLCUmixed",
+                            "alias": "BLCUmixed",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        }
+                    ],
+                    "parsing": {
+                        "enableScanningParser": true,
+                        "enableMecabParser": false,
+                        "selectedParser": "scan",
+                        "termSpacing": true,
+                        "readingMode": "hiragana"
+                    },
+                    "anki": {
+                        "enable": true,
+                        "server": "http://127.0.0.1:8765",
+                        "tags": [
+                            "yomitan"
+                        ],
+                        "screenshot": {
+                            "format": "png",
+                            "quality": 92
+                        },
+                        "cardFormats": [
+                            {
+                                "name": "TSC",
+                                "icon": "big-circle",
+                                "deck": "Japanese::TSC",
+                                "model": "JA-TSC",
+                                "fields": {
+                                    "VocabKanji": {
+                                        "value": "{expression}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabFurigana": {
+                                        "value": "{furigana-plain}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabPitchPattern": {
+                                        "value": "{pitch-accents}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabPitchNum": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabDef": {
+                                        "value": "{glossary-plain-no-dictionary}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabAudio": {
+                                        "value": "{audio}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentKanji": {
+                                        "value": "{sentence}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentFurigana": {
+                                        "value": "{cloze-prefix}<b>{cloze-body}</b>{cloze-suffix}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentEng": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentAudio": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Image": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Notes": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "MakeProductionCard": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Focus": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Freq": {
+                                        "value": "{frequency-harmonic-rank}",
+                                        "overwriteMode": "coalesce"
+                                    }
+                                },
+                                "type": "term"
+                            },
+                            {
+                                "name": "Reading",
+                                "icon": "small-circle",
+                                "deck": "",
+                                "model": "",
+                                "fields": {},
+                                "type": "term"
+                            },
+                            {
+                                "name": "Kanji",
+                                "icon": "big-circle",
+                                "deck": "",
+                                "model": "",
+                                "fields": {},
+                                "type": "kanji"
+                            }
+                        ],
+                        "duplicateScope": "deck",
+                        "duplicateScopeCheckAllModels": false,
+                        "checkForDuplicates": true,
+                        "duplicateBehavior": "new",
+                        "fieldTemplates": "{{#*inline \"glossary-single\"}}\n    {{~#unless brief~}}\n        {{~#scope~}}\n            {{~set \"any\" false~}}\n            {{~#each definitionTags~}}\n                {{~#if (op \"||\" (op \"!\" @root.compactTags) (op \"!\" redundant))~}}\n                    {{~#if (get \"any\")}}, {{else}}<i>({{/if~}}\n                    {{name}}\n                    {{~set \"any\" true~}}\n                {{~/if~}}\n            {{~/each~}}\n            {{~#unless noDictionaryTag~}}\n                {{~#if (op \"||\" (op \"!\" @root.compactTags) (op \"!==\" dictionary (get \"previousDictionary\")))~}}\n                    {{~#if (get \"any\")}}, {{else}}<i>({{/if~}}\n                    {{dictionaryAlias}}\n                    {{~set \"any\" true~}}\n                {{~/if~}}\n            {{~/unless~}}\n            {{~#if (get \"any\")}})</i> {{/if~}}\n        {{~/scope~}}\n        {{~#if only~}}({{#each only}}{{.}}{{#unless @last}}, {{/unless}}{{/each}} only) {{/if~}}\n    {{~/unless~}}\n    {{~#if (op \"<=\" glossary.length 1)~}}\n        {{#each glossary}}{{formatGlossary ../dictionary .}}{{/each}}\n    {{~else if @root.compactGlossaries~}}\n        {{#each glossary}}{{formatGlossary ../dictionary .}}{{#unless @last}} | {{/unless}}{{/each}}\n    {{~else~}}\n        <ul>{{#each glossary}}<li>{{formatGlossary ../dictionary .}}</li>{{/each}}</ul>\n    {{~/if~}}\n    {{~set \"previousDictionary\" dictionary~}}\n{{/inline}}\n\n{{#*inline \"audio\"}}\n    {{~#if (hasMedia \"audio\")~}}\n        [sound:{{getMedia \"audio\"}}]\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"character\"}}\n    {{~definition.character~}}\n{{/inline}}\n\n{{#*inline \"dictionary\"}}\n    {{~definition.dictionary~}}\n{{/inline}}\n\n{{#*inline \"dictionary-alias\"}}\n    {{~definition.dictionaryAlias~}}\n{{/inline}}\n\n{{#*inline \"expression\"}}\n    {{~#if merge~}}\n        {{~#each definition.expression~}}\n            {{{.}}}\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{definition.expression}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"furigana\"}}\n    {{~#if merge~}}\n        {{~#each definition.expressions~}}\n            <span class=\"expression-{{termFrequency}}\">{{~furigana .~}}</span>\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{furigana definition}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"furigana-plain\"}}\n    {{~#if merge~}}\n        {{~#each definition.expressions~}}\n            <span class=\"expression-{{termFrequency}}\">{{~furiganaPlain .~}}</span>\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{furiganaPlain definition}}\n    {{~/if~}}\n{{/inline}}\n\n{{~#*inline \"glossary\"~}}\n    <div style=\"text-align: left;\" class=\"yomitan-glossary\">\n    {{~#scope~}}\n        {{~#if (op \"===\" definition.type \"term\")~}}\n            {{~#unless (op \"&&\" selectedDictionary (op \"!=\" selectedDictionary definition.dictionary))~}}\n                {{~> glossary-single definition brief=brief noDictionaryTag=noDictionaryTag ~}}\n                {{~#if definition.glossaryScopedStyles~}}\n                    <style>{{{definition.glossaryScopedStyles}}}</style>\n                {{~/if~}}\n            {{~/unless~}}\n        {{~else if (op \"||\" (op \"===\" definition.type \"termGrouped\") (op \"===\" definition.type \"termMerged\"))~}}\n            <ol>\n                {{~#each definition.definitions~}}\n                    {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                        <li data-dictionary=\"{{dictionary}}\">\n                            {{~> glossary-single . brief=../brief noDictionaryTag=../noDictionaryTag ~}}\n                        </li>\n                        {{~#if dictScopedStyles~}}\n                            <style>{{{dictScopedStyles}}}</style>\n                        {{~/if~}}\n                    {{~/unless~}}\n                {{~/each~}}\n            </ol>\n        {{~else if (op \"===\" definition.type \"kanji\")~}}\n            {{~#if (op \">\" definition.glossary.length 1)~}}\n                <ol>{{#each definition.glossary}}<li>{{.}}</li>{{/each}}</ol>\n            {{~else~}}\n                {{~#each definition.glossary~}}{{.}}{{~/each~}}\n            {{~/if~}}\n        {{~/if~}}\n    {{~/scope~}}\n    </div>\n{{~/inline~}}\n\n{{#*inline \"glossary-no-dictionary\"}}\n    {{~> glossary noDictionaryTag=true ~}}\n{{/inline}}\n\n{{#*inline \"glossary-brief\"}}\n    {{~> glossary brief=true ~}}\n{{/inline}}\n\n{{~#*inline \"glossary-plain\"~}}\n    {{~#scope~}}\n        {{~#if (op \"||\" (op \"===\" definition.type \"termGrouped\") (op \"===\" definition.type \"termMerged\"))~}}\n            {{~#each definition.definitions~}}\n                {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                    {{~#unless ../noDictionaryTag~}}\n                        ({{dictionaryAlias}})<br>\n                    {{~/unless~}}\n                    {{#each glossary}}{{{formatGlossaryPlain ../dictionary .}}}{{#unless @last}}<br>{{/unless}}{{/each}}{{#unless @last}}<br>{{/unless}}\n                {{~/unless~}}\n            {{~/each~}}\n        {{~else~}}\n            {{~#unless (op \"&&\" selectedDictionary (op \"!=\" selectedDictionary definition.dictionary))~}}\n                {{~#unless noDictionaryTag~}}\n                    ({{definition.dictionaryAlias}})<br>\n                {{~/unless~}}\n                {{#each definition.glossary}}{{{formatGlossaryPlain ../definition.dictionary .}}}{{/each}}\n            {{~/unless~}}\n        {{~/if~}}\n    {{~/scope~}}\n{{~/inline~}}\n\n{{#*inline \"glossary-plain-no-dictionary\"~}}\n    {{~> glossary-plain noDictionaryTag=true ~}}\n{{/inline}}\n\n{{~#*inline \"glossary-first\"~}}\n    <div style=\"text-align: left;\" class=\"yomitan-glossary\">\n    {{~#scope~}}\n        {{~#if (op \"===\" definition.type \"term\")~}}\n            {{~> glossary-single definition brief=brief noDictionaryTag=noDictionaryTag ~}}\n            {{~#if definition.glossaryScopedStyles~}}\n                <style>{{{definition.glossaryScopedStyles}}}</style>\n            {{~/if~}}\n        {{~else if (op \"||\" (op \"===\" definition.type \"termGrouped\") (op \"===\" definition.type \"termMerged\"))~}}\n            {{~#if (op \">\" definition.definitions.length 1)~}}\n                {{~#with definition.definitions.[0]~}}\n                    {{~> glossary-single . brief=../brief noDictionaryTag=../noDictionaryTag ~}}\n                    {{~#if glossaryScopedStyles~}}\n                        <style>{{{glossaryScopedStyles}}}</style>\n                    {{~/if~}}\n                {{~/with~}}\n            {{~else~}}\n                {{~#with definition.definitions.[0]~}}\n                    {{~> glossary-single . brief=../brief noDictionaryTag=../noDictionaryTag ~}}\n                    {{~#if glossaryScopedStyles~}}\n                        <style>{{{glossaryScopedStyles}}}</style>\n                    {{~/if~}}\n                {{~/with~}}\n            {{~/if~}}\n        {{~/if~}}\n    {{~/scope~}}\n    </div>\n{{~/inline~}}\n\n{{#*inline \"glossary-first-no-dictionary\"}}\n    {{~> glossary-first noDictionaryTag=true ~}}\n{{/inline}}\n\n{{#*inline \"glossary-first-brief\"}}\n    {{~> glossary-first brief=true ~}}\n{{/inline}}\n\n{{#*inline \"kunyomi\"}}\n    {{~#each definition.kunyomi}}{{.}}{{#unless @last}}, {{/unless}}{{/each~}}\n{{/inline}}\n\n{{#*inline \"onyomi\"}}\n    {{~#each definition.onyomi}}{{.}}{{#unless @last}}, {{/unless}}{{/each~}}\n{{/inline}}\n\n{{#*inline \"onyomi-hiragana\"}}\n    {{~#each definition.onyomi}}{{hiragana .}}{{#unless @last}}, {{/unless}}{{/each~}}\n{{/inline}}\n\n{{#*inline \"reading\"}}\n    {{~#if merge~}}\n        {{~#each definition.reading~}}\n            {{{.}}}\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{~definition.reading~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"sentence\"}}\n    {{~#if definition.cloze~}}\n        {{{definition.cloze.prefix}}}<b>{{{definition.cloze.body}}}</b>{{{definition.cloze.suffix}}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-prefix\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.prefix)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.prefix escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.prefix}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-body\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.body)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.body escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.body}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-body-kana\"}}\n    {{~#if definition.cloze}}{{{definition.cloze.bodyKana}}}{{/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-suffix\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.suffix)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.suffix escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.suffix}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"tags\"}}\n    {{~#mergeTags definition group merge}}{{this}}{{/mergeTags~}}\n{{/inline}}\n\n{{~#*inline \"url\"~}}\n    <a href=\"{{definition.url}}\">{{definition.url}}</a>\n{{~/inline~}}\n\n{{#*inline \"screenshot\"}}\n    {{~#if (hasMedia \"screenshot\")~}}\n        <img src=\"{{getMedia \"screenshot\"}}\" />\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"document-title\"}}\n    {{~context.document.title~}}\n{{/inline}}\n\n{{! Pitch Accents }}\n{{#*inline \"pitch-accent-item\"}}\n    {{~pronunciation format=format reading=reading pitchPositions=positions nasalPositions=nasalPositions devoicePositions=devoicePositions~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-item-disambiguation\"}}\n    {{~#scope~}}\n        {{~set \"exclusive\" (spread exclusiveExpressions exclusiveReadings)~}}\n        {{~#if (op \">\" (property (get \"exclusive\") \"length\") 0)~}}\n            {{~set \"separator\" \"\"~}}\n            <em>({{#each (get \"exclusive\")~}}\n                {{~get \"separator\"~}}{{{.}}}\n            {{~/each}} only) </em>\n        {{~/if~}}\n    {{~/scope~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-list\"}}\n    {{~#if (op \">\" pitchCount 0)~}}\n        {{~#if (op \">\" pitchCount 1)~}}<ol>{{~/if~}}\n        {{~#each pitches~}}\n            {{~#each pitches~}}\n                {{~#if (op \">\" ../../pitchCount 1)~}}<li>{{~/if~}}\n                    {{~> pitch-accent-item-disambiguation~}}\n                    {{~> pitch-accent-item format=../../format~}}\n                {{~#if (op \">\" ../../pitchCount 1)~}}</li>{{~/if~}}\n            {{~/each~}}\n        {{~/each~}}\n        {{~#if (op \">\" pitchCount 1)~}}</ol>{{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"pitch-accents\"}}\n    {{~> pitch-accent-list format='text'~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-graphs\"}}\n    {{~> pitch-accent-list format='graph'~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-graphs-jj\"}}\n    {{~> pitch-accent-list format='graph-jj'~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-positions\"}}\n    {{~> pitch-accent-list format='position'~}}\n{{/inline}}\n\n{{~#*inline \"pitch-accent-categories\"~}}\n    {{~#each (pitchCategories @root)~}}{{~.~}}{{~#unless @last~}},{{~/unless~}}{{~/each~}}\n{{~/inline~}}\n{{! End Pitch Accents }}\n\n{{#*inline \"phonetic-transcriptions\"}}\n    {{~#if (op \">\" definition.phoneticTranscriptions.length 0)~}}\n        <ul>\n            {{~#each definition.phoneticTranscriptions~}}\n                {{~#each phoneticTranscriptions~}}\n                    <li class=\"pronunciation\" data-pronunciation-type=\"phonetic-transcription\">\n                        {{~set \"any\" false~}}\n                        {{~#each tags~}}\n                            {{~#if (get \"any\")}}, {{else}}<i>({{/if~}}\n                            <span class=\"tag\" data-details=\"{{name}}\">{{name}}</span>\n                            {{~set \"any\" true~}}\n                        {{~/each~}}\n                        {{~#if (get \"any\")}})</i> {{/if~}}\n                        {{ipa~}}\n                    </li>\n                {{~/each~}}\n            {{~/each~}}\n        </ul>\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"clipboard-image\"}}\n    {{~#if (hasMedia \"clipboardImage\")~}}\n        <img src=\"{{getMedia \"clipboardImage\"}}\" />\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"clipboard-text\"}}\n    {{~#if (hasMedia \"clipboardText\")}}{{{getMedia \"clipboardText\"}}}{{/if~}}\n{{/inline}}\n\n{{#*inline \"conjugation\"}}\n    {{~#if (op \">\" definition.inflectionRuleChainCandidates.length 0)~}}\n        {{~set \"multiple\" false~}}\n        {{~#if (op \">\" definition.inflectionRuleChainCandidates.length 1)~}}\n            {{~set \"multiple\" true~}}\n        {{~/if~}}\n        {{~#if (get \"multiple\")~}}<ul>{{/if~}}\n            {{~#each definition.inflectionRuleChainCandidates~}}\n                {{~#if (op \">\" inflectionRules.length 0)~}}\n                    {{~#if (get \"multiple\")~}}<li>{{/if~}}\n                    {{~#each inflectionRules~}}\n                        {{~#if (op \">\" @index 0)}} « {{/if~}}\n                        {{name}}\n                    {{~/each~}}\n                    {{~#if (get \"multiple\")~}}</li>{{/if~}}\n                {{~/if~}}\n            {{~/each~}}\n        {{~#if (get \"multiple\")~}}</ul>{{/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequencies\"}}\n    {{~#if (op \">\" definition.frequencies.length 0)~}}\n        <ul style=\"text-align: left;\">\n        {{~#each definition.frequencies~}}\n            {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                <li>\n                {{~#if (op \"!==\" ../definition.type \"kanji\")~}}\n                    {{~#if (op \"||\" (op \">\" ../uniqueExpressions.length 1) (op \">\" ../uniqueReadings.length 1))~}}(\n                        {{~furigana expression reading~}}\n                    ) {{/if~}}\n                {{~/if~}}\n                {{~dictionaryAlias}}: {{frequency~}}\n                </li>\n            {{~/unless~}}\n        {{~/each~}}\n        </ul>\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"single-frequency-number\"}}\n    {{~#if (op \">\" definition.frequencyNumbers.length 0)~}}\n        {{~#each definition.frequencyNumbers~}}\n            {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                    {{frequency~}}\n            {{~/unless~}}\n        {{~/each~}}\n    {{/if}}\n{{/inline}}\n\n{{#*inline \"frequency-harmonic-rank\"}}\n    {{~#if (op \"===\" definition.frequencyHarmonicRank -1) ~}}\n        9999999\n    {{~else ~}}\n        {{definition.frequencyHarmonicRank}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequency-harmonic-occurrence\"}}\n    {{~#if (op \"===\" definition.frequencyHarmonicOccurrence -1) ~}}\n        0\n    {{~else ~}}\n        {{definition.frequencyHarmonicOccurrence}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequency-average-rank\"}}\n    {{~#if (op \"===\" definition.frequencyAverageRank -1) ~}}\n        9999999\n    {{~else ~}}\n        {{definition.frequencyAverageRank}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequency-average-occurrence\"}}\n    {{~#if (op \"===\" definition.frequencyAverageOccurrence -1) ~}}\n        0\n    {{~else ~}}\n        {{definition.frequencyAverageOccurrence}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"stroke-count\"}}\n    {{~#scope~}}\n        {{~set \"found\" false~}}\n        {{~#each definition.stats.misc~}}\n            {{~#if (op \"===\" name \"strokes\")~}}\n                {{~set \"found\" true~}}\n                Stroke count: {{value}}\n            {{~/if~}}\n        {{~/each~}}\n        {{~#if (op \"!\" (get \"found\"))~}}\n            Stroke count: Unknown\n        {{~/if~}}\n    {{~/scope~}}\n{{/inline}}\n\n{{#*inline \"part-of-speech-pretty\"}}\n    {{~#if (op \"===\" . \"v1\")~}}Ichidan verb\n    {{~else if (op \"===\" . \"v5\")~}}Godan verb\n    {{~else if (op \"===\" . \"vk\")~}}Kuru verb\n    {{~else if (op \"===\" . \"vs\")~}}Suru verb\n    {{~else if (op \"===\" . \"vz\")~}}Zuru verb\n    {{~else if (op \"===\" . \"adj-i\")~}}I-adjective\n    {{~else if (op \"===\" . \"n\")~}}Noun\n    {{~else~}}{{.}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"part-of-speech\"}}\n    {{~#scope~}}\n        {{~#if (op \"!==\" definition.type \"kanji\")~}}\n            {{~set \"first\" true~}}\n            {{~#each definition.expressions~}}\n                {{~#each wordClasses~}}\n                    {{~#unless (get (concat \"used_\" .))~}}\n                        {{~> part-of-speech-pretty . ~}}\n                        {{~#unless (get \"first\")}}, {{/unless~}}\n                        {{~set (concat \"used_\" .) true~}}\n                        {{~set \"first\" false~}}\n                    {{~/unless~}}\n                {{~/each~}}\n            {{~/each~}}\n            {{~#if (get \"first\")~}}Unknown{{~/if~}}\n        {{~/if~}}\n    {{~/scope~}}\n{{/inline}}\n\n{{#*inline \"search-query\"}}\n    {{~#multiLine}}{{context.fullQuery}}{{/multiLine~}}\n{{/inline}}\n\n{{#*inline \"popup-selection-text\"}}\n    {{~#if (hasMedia \"popupSelectionText\")}}{{{getMedia \"popupSelectionText\"}}}{{/if~}}\n{{/inline}}\n\n{{#*inline \"sentence-furigana\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFurigana\" definition.cloze.sentence)~}}\n            {{{getMedia \"textFurigana\" definition.cloze.sentence escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.sentence}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"sentence-furigana-plain\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.sentence)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.sentence escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.sentence}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{~#*inline \"url-plain\"~}}\n    {{definition.url}}\n{{~/inline~}}\n\n{{~> (lookup . \"marker\") ~}}",
+                        "suspendNewCards": false,
+                        "displayTagsAndFlags": "always",
+                        "targetTags": [],
+                        "noteGuiMode": "browse",
+                        "apiKey": "",
+                        "downloadTimeout": 0,
+                        "forceSync": false,
+                        "noteDupeCheckFirst": false
+                    },
+                    "sentenceParsing": {
+                        "scanExtent": 200,
+                        "terminationCharacterMode": "custom",
+                        "terminationCharacters": [
+                            {
+                                "enabled": true,
+                                "character1": "「",
+                                "character2": "」",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "『",
+                                "character2": "』",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "\"",
+                                "character2": "\"",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "'",
+                                "character2": "'",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": ".",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "!",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "?",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "．",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "。",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "！",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "？",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "…",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︒",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︕",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︖",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︙",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            }
+                        ]
+                    },
+                    "inputs": {
+                        "hotkeys": [
+                            {
+                                "action": "close",
+                                "argument": "",
+                                "key": "Escape",
+                                "modifiers": [],
+                                "scopes": [
+                                    "popup"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "focusSearchBox",
+                                "argument": "",
+                                "key": "Escape",
+                                "modifiers": [],
+                                "scopes": [
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "previousEntry",
+                                "argument": "3",
+                                "key": "PageUp",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "nextEntry",
+                                "argument": "3",
+                                "key": "PageDown",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "lastEntry",
+                                "argument": "",
+                                "key": "End",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "firstEntry",
+                                "argument": "",
+                                "key": "Home",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "previousEntry",
+                                "argument": "1",
+                                "key": "ArrowUp",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "nextEntry",
+                                "argument": "1",
+                                "key": "ArrowDown",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "historyBackward",
+                                "argument": "",
+                                "key": "KeyB",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "historyForward",
+                                "argument": "",
+                                "key": "KeyF",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "profilePrevious",
+                                "argument": "",
+                                "key": "Minus",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search",
+                                    "web"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "profileNext",
+                                "argument": "",
+                                "key": "Equal",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search",
+                                    "web"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "0",
+                                "key": "KeyE",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "1",
+                                "key": "KeyR",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "2",
+                                "key": "KeyK",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "playAudio",
+                                "argument": "",
+                                "key": "KeyP",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "viewNotes",
+                                "argument": "0",
+                                "key": "KeyV",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "copyHostSelection",
+                                "argument": "",
+                                "key": "KeyC",
+                                "modifiers": [
+                                    "ctrl"
+                                ],
+                                "scopes": [
+                                    "popup"
+                                ],
+                                "enabled": true
+                            }
+                        ]
+                    },
+                    "clipboard": {
+                        "enableBackgroundMonitor": false,
+                        "enableSearchPageMonitor": true,
+                        "autoSearchContent": true,
+                        "maximumSearchLength": 1000
+                    },
+                    "accessibility": {
+                        "forceGoogleDocsHtmlRendering": false
+                    }
+                }
+            },
+            {
+                "name": "Mandarin",
+                "conditionGroups": [],
+                "options": {
+                    "general": {
+                        "enable": true,
+                        "language": "zh",
+                        "resultOutputMode": "group",
+                        "debugInfo": false,
+                        "maxResults": 32,
+                        "showAdvanced": true,
+                        "showDebug": false,
+                        "popupDisplayMode": "default",
+                        "popupWidth": 400,
+                        "popupHeight": 250,
+                        "popupHorizontalOffset": 0,
+                        "popupVerticalOffset": 10,
+                        "popupHorizontalOffset2": 10,
+                        "popupVerticalOffset2": 0,
+                        "popupHorizontalTextPosition": "below",
+                        "popupVerticalTextPosition": "before",
+                        "popupScalingFactor": 1,
+                        "popupScaleRelativeToPageZoom": true,
+                        "popupScaleRelativeToVisualViewport": false,
+                        "showGuide": false,
+                        "enableContextMenuScanSelected": false,
+                        "compactTags": true,
+                        "averageFrequency": false,
+                        "glossaryLayoutMode": "compact-popup-anki",
+                        "mainDictionary": "Jitendex.org [2026-04-04]",
+                        "popupTheme": "dark",
+                        "popupOuterTheme": "light",
+                        "customPopupCss": "",
+                        "customPopupOuterCss": "",
+                        "enableWanakana": true,
+                        "showPitchAccentDownstepNotation": false,
+                        "showPitchAccentPositionNotation": false,
+                        "showPitchAccentGraph": false,
+                        "showIframePopupsInRootFrame": true,
+                        "useSecurePopupFrameUrl": true,
+                        "usePopupShadowDom": true,
+                        "usePopupWindow": false,
+                        "popupCurrentIndicatorMode": "none",
+                        "popupActionBarVisibility": "auto",
+                        "popupActionBarLocation": "top",
+                        "frequencyDisplayMode": "split-tags",
+                        "termDisplayMode": "ruby",
+                        "sortFrequencyDictionary": "BLCUcoll",
+                        "sortFrequencyDictionaryOrder": "ascending",
+                        "stickySearchHeader": false,
+                        "fontFamily": "",
+                        "fontSize": 14,
+                        "lineHeight": "1.5",
+                        "enableYomitanApi": true,
+                        "yomitanApiServer": "http://127.0.0.1:19633",
+                        "yomitanApiAllowCssSanitizationBypass": false,
+                        "popupFullWidthPosition": "bottom"
+                    },
+                    "popupWindow": {
+                        "width": 400,
+                        "height": 250,
+                        "left": 0,
+                        "top": 0,
+                        "useLeft": false,
+                        "useTop": false,
+                        "windowType": "popup",
+                        "windowState": "normal"
+                    },
+                    "audio": {
+                        "enabled": true,
+                        "volume": 100,
+                        "autoPlay": false,
+                        "fallbackSoundType": "none",
+                        "sources": [],
+                        "enableDefaultAudioSources": true
+                    },
+                    "scanning": {
+                        "inputs": [
+                            {
+                                "include": "shift",
+                                "exclude": "mouse0",
+                                "types": {
+                                    "mouse": true,
+                                    "touch": false,
+                                    "pen": false
+                                },
+                                "options": {
+                                    "showAdvanced": false,
+                                    "searchTerms": true,
+                                    "searchKanji": true,
+                                    "scanOnTouchTap": true,
+                                    "scanOnTouchMove": false,
+                                    "scanOnTouchPress": false,
+                                    "scanOnTouchRelease": false,
+                                    "scanOnPenMove": true,
+                                    "scanOnPenHover": false,
+                                    "scanOnPenReleaseHover": false,
+                                    "scanOnPenPress": true,
+                                    "scanOnPenRelease": false,
+                                    "preventTouchScrolling": false,
+                                    "preventPenScrolling": false,
+                                    "minimumTouchTime": 0
+                                }
+                            },
+                            {
+                                "include": "",
+                                "exclude": "",
+                                "types": {
+                                    "mouse": false,
+                                    "touch": true,
+                                    "pen": true
+                                },
+                                "options": {
+                                    "showAdvanced": false,
+                                    "searchTerms": true,
+                                    "searchKanji": true,
+                                    "scanOnTouchTap": true,
+                                    "scanOnTouchMove": false,
+                                    "scanOnTouchPress": false,
+                                    "scanOnTouchRelease": false,
+                                    "scanOnPenMove": true,
+                                    "scanOnPenHover": false,
+                                    "scanOnPenReleaseHover": false,
+                                    "scanOnPenPress": true,
+                                    "scanOnPenRelease": false,
+                                    "preventTouchScrolling": true,
+                                    "preventPenScrolling": true,
+                                    "minimumTouchTime": 0
+                                }
+                            }
+                        ],
+                        "preventMiddleMouse": {
+                            "onTextHover": null,
+                            "onWebPages": false,
+                            "onPopupPages": false,
+                            "onSearchPages": false,
+                            "onSearchQuery": false
+                        },
+                        "preventBackForward": {
+                            "onTextHover": null,
+                            "onWebPages": false,
+                            "onPopupPages": false,
+                            "onSearchPages": false,
+                            "onSearchQuery": false
+                        },
+                        "selectText": true,
+                        "alphanumeric": true,
+                        "autoHideResults": false,
+                        "delay": 20,
+                        "hideDelay": 0,
+                        "length": 16,
+                        "deepDomScan": false,
+                        "popupNestingMaxDepth": 30,
+                        "enablePopupSearch": false,
+                        "enableOnPopupExpressions": false,
+                        "enableOnSearchPage": true,
+                        "enableSearchTags": false,
+                        "layoutAwareScan": true,
+                        "matchTypePrefix": false,
+                        "hidePopupOnCursorExit": false,
+                        "hidePopupOnCursorExitDelay": 0,
+                        "reducedMotionScrolling": false,
+                        "reducedMotionScrollingScale": 1,
+                        "reducedMotionScrollingSwipeThreshold": 40,
+                        "normalizeCssZoom": true,
+                        "scanWithoutMousemove": true,
+                        "scanResolution": "character"
+                    },
+                    "translation": {
+                        "textReplacements": {
+                            "searchOriginal": true,
+                            "groups": []
+                        },
+                        "searchResolution": "letter"
+                    },
+                    "dictionaries": [
+                        {
+                            "name": "Jitendex.org [2026-04-04]",
+                            "alias": "Jitendex.org [2026-04-04]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n"
+                        },
+                        {
+                            "name": "JPDBv2㋕",
+                            "alias": "JPDBv2㋕",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BCCWJ",
+                            "alias": "BCCWJ",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "KANJIDIC [2026-178]",
+                            "alias": "KANJIDIC [2026-178]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "Jiten",
+                            "alias": "Jiten",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "JMnedict [2026-06-27]",
+                            "alias": "JMnedict [2026-06-27]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "アクセント辞典",
+                            "alias": "アクセント辞典",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "CC-CEDICT [2026-06-29]",
+                            "alias": "CC-CEDICT [2026-06-29]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "500idioms",
+                            "alias": "500idioms",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BLCUcoll",
+                            "alias": "BLCUcoll",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BLCUmixed",
+                            "alias": "BLCUmixed",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        }
+                    ],
+                    "parsing": {
+                        "enableScanningParser": true,
+                        "enableMecabParser": false,
+                        "selectedParser": "scan",
+                        "termSpacing": true,
+                        "readingMode": "hiragana"
+                    },
+                    "anki": {
+                        "enable": true,
+                        "server": "http://127.0.0.1:8765",
+                        "tags": [
+                            "yomitan"
+                        ],
+                        "screenshot": {
+                            "format": "png",
+                            "quality": 92
+                        },
+                        "cardFormats": [
+                            {
+                                "name": "TSC",
+                                "icon": "big-circle",
+                                "deck": "Mandarin::TSC",
+                                "model": "MB-TSC",
+                                "fields": {
+                                    "VocabHanzi": {
+                                        "value": "{expression}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Pinyin": {
+                                        "value": "{reading}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabDef": {
+                                        "value": "{glossary-plain-no-dictionary}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "VocabAudio": {
+                                        "value": "{audio}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentHanzi": {
+                                        "value": "{sentence}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentEng": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentAudio": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "MneumonicNote": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "ContextNotes": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Freq": {
+                                        "value": "{frequency-harmonic-rank}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Image": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    }
+                                },
+                                "type": "term"
+                            },
+                            {
+                                "name": "Character",
+                                "icon": "big-square",
+                                "deck": "Mandarin::Characters",
+                                "model": "MB-Character",
+                                "fields": {
+                                    "Character": {
+                                        "value": "{expression}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Pinyin": {
+                                        "value": "{reading}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Meanings": {
+                                        "value": "{glossary-plain-no-dictionary}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Audio": {
+                                        "value": "{audio}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Movie": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Freq": {
+                                        "value": "{frequency-average-rank}",
+                                        "overwriteMode": "coalesce"
+                                    }
+                                },
+                                "type": "term"
+                            }
+                        ],
+                        "duplicateScope": "deck",
+                        "duplicateScopeCheckAllModels": false,
+                        "checkForDuplicates": true,
+                        "duplicateBehavior": "new",
+                        "fieldTemplates": "{{#*inline \"glossary-single\"}}\n    {{~#unless brief~}}\n        {{~#scope~}}\n            {{~set \"any\" false~}}\n            {{~#each definitionTags~}}\n                {{~#if (op \"||\" (op \"!\" @root.compactTags) (op \"!\" redundant))~}}\n                    {{~#if (get \"any\")}}, {{else}}<i>({{/if~}}\n                    {{name}}\n                    {{~set \"any\" true~}}\n                {{~/if~}}\n            {{~/each~}}\n            {{~#unless noDictionaryTag~}}\n                {{~#if (op \"||\" (op \"!\" @root.compactTags) (op \"!==\" dictionary (get \"previousDictionary\")))~}}\n                    {{~#if (get \"any\")}}, {{else}}<i>({{/if~}}\n                    {{dictionaryAlias}}\n                    {{~set \"any\" true~}}\n                {{~/if~}}\n            {{~/unless~}}\n            {{~#if (get \"any\")}})</i> {{/if~}}\n        {{~/scope~}}\n        {{~#if only~}}({{#each only}}{{.}}{{#unless @last}}, {{/unless}}{{/each}} only) {{/if~}}\n    {{~/unless~}}\n    {{~#if (op \"<=\" glossary.length 1)~}}\n        {{#each glossary}}{{formatGlossary ../dictionary .}}{{/each}}\n    {{~else if @root.compactGlossaries~}}\n        {{#each glossary}}{{formatGlossary ../dictionary .}}{{#unless @last}} | {{/unless}}{{/each}}\n    {{~else~}}\n        <ul>{{#each glossary}}<li>{{formatGlossary ../dictionary .}}</li>{{/each}}</ul>\n    {{~/if~}}\n    {{~set \"previousDictionary\" dictionary~}}\n{{/inline}}\n\n{{#*inline \"audio\"}}\n    {{~#if (hasMedia \"audio\")~}}\n        [sound:{{getMedia \"audio\"}}]\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"character\"}}\n    {{~definition.character~}}\n{{/inline}}\n\n{{#*inline \"dictionary\"}}\n    {{~definition.dictionary~}}\n{{/inline}}\n\n{{#*inline \"dictionary-alias\"}}\n    {{~definition.dictionaryAlias~}}\n{{/inline}}\n\n{{#*inline \"expression\"}}\n    {{~#if merge~}}\n        {{~#each definition.expression~}}\n            {{{.}}}\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{definition.expression}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"furigana\"}}\n    {{~#if merge~}}\n        {{~#each definition.expressions~}}\n            <span class=\"expression-{{termFrequency}}\">{{~furigana .~}}</span>\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{furigana definition}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"furigana-plain\"}}\n    {{~#if merge~}}\n        {{~#each definition.expressions~}}\n            <span class=\"expression-{{termFrequency}}\">{{~furiganaPlain .~}}</span>\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{furiganaPlain definition}}\n    {{~/if~}}\n{{/inline}}\n\n{{~#*inline \"glossary\"~}}\n    <div style=\"text-align: left;\" class=\"yomitan-glossary\">\n    {{~#scope~}}\n        {{~#if (op \"===\" definition.type \"term\")~}}\n            {{~#unless (op \"&&\" selectedDictionary (op \"!=\" selectedDictionary definition.dictionary))~}}\n                {{~> glossary-single definition brief=brief noDictionaryTag=noDictionaryTag ~}}\n                {{~#if definition.glossaryScopedStyles~}}\n                    <style>{{{definition.glossaryScopedStyles}}}</style>\n                {{~/if~}}\n            {{~/unless~}}\n        {{~else if (op \"||\" (op \"===\" definition.type \"termGrouped\") (op \"===\" definition.type \"termMerged\"))~}}\n            <ol>\n                {{~#each definition.definitions~}}\n                    {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                        <li data-dictionary=\"{{dictionary}}\">\n                            {{~> glossary-single . brief=../brief noDictionaryTag=../noDictionaryTag ~}}\n                        </li>\n                        {{~#if dictScopedStyles~}}\n                            <style>{{{dictScopedStyles}}}</style>\n                        {{~/if~}}\n                    {{~/unless~}}\n                {{~/each~}}\n            </ol>\n        {{~else if (op \"===\" definition.type \"kanji\")~}}\n            {{~#if (op \">\" definition.glossary.length 1)~}}\n                <ol>{{#each definition.glossary}}<li>{{.}}</li>{{/each}}</ol>\n            {{~else~}}\n                {{~#each definition.glossary~}}{{.}}{{~/each~}}\n            {{~/if~}}\n        {{~/if~}}\n    {{~/scope~}}\n    </div>\n{{~/inline~}}\n\n{{#*inline \"glossary-no-dictionary\"}}\n    {{~> glossary noDictionaryTag=true ~}}\n{{/inline}}\n\n{{#*inline \"glossary-brief\"}}\n    {{~> glossary brief=true ~}}\n{{/inline}}\n\n{{~#*inline \"glossary-plain\"~}}\n    {{~#scope~}}\n        {{~#if (op \"||\" (op \"===\" definition.type \"termGrouped\") (op \"===\" definition.type \"termMerged\"))~}}\n            {{~#each definition.definitions~}}\n                {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                    {{~#unless ../noDictionaryTag~}}\n                        ({{dictionaryAlias}})<br>\n                    {{~/unless~}}\n                    {{#each glossary}}{{#regexReplace \"^.*?<br\\s*/?>\" \"\"}}{{{formatGlossaryPlain ../dictionary .}}}{{/regexReplace}}{{#unless @last}}<br>{{/unless}}{{/each}}{{#unless @last}}<br>{{/unless}}\n                {{~/unless~}}\n            {{~/each~}}\n        {{~else~}}\n            {{~#unless (op \"&&\" selectedDictionary (op \"!=\" selectedDictionary definition.dictionary))~}}\n                {{~#unless noDictionaryTag~}}\n                    ({{definition.dictionaryAlias}})<br>\n                {{~/unless~}}\n                {{#each definition.glossary}}{{{formatGlossaryPlain ../definition.dictionary .}}}{{/each}}\n            {{~/unless~}}\n        {{~/if~}}\n    {{~/scope~}}\n{{~/inline~}}\n\n{{#*inline \"glossary-plain-no-dictionary\"~}}\n    {{~> glossary-plain noDictionaryTag=true ~}}\n{{/inline}}\n\n{{~#*inline \"glossary-first\"~}}\n    <div style=\"text-align: left;\" class=\"yomitan-glossary\">\n    {{~#scope~}}\n        {{~#if (op \"===\" definition.type \"term\")~}}\n            {{~> glossary-single definition brief=brief noDictionaryTag=noDictionaryTag ~}}\n            {{~#if definition.glossaryScopedStyles~}}\n                <style>{{{definition.glossaryScopedStyles}}}</style>\n            {{~/if~}}\n        {{~else if (op \"||\" (op \"===\" definition.type \"termGrouped\") (op \"===\" definition.type \"termMerged\"))~}}\n            {{~#if (op \">\" definition.definitions.length 1)~}}\n                {{~#with definition.definitions.[0]~}}\n                    {{~> glossary-single . brief=../brief noDictionaryTag=../noDictionaryTag ~}}\n                    {{~#if glossaryScopedStyles~}}\n                        <style>{{{glossaryScopedStyles}}}</style>\n                    {{~/if~}}\n                {{~/with~}}\n            {{~else~}}\n                {{~#with definition.definitions.[0]~}}\n                    {{~> glossary-single . brief=../brief noDictionaryTag=../noDictionaryTag ~}}\n                    {{~#if glossaryScopedStyles~}}\n                        <style>{{{glossaryScopedStyles}}}</style>\n                    {{~/if~}}\n                {{~/with~}}\n            {{~/if~}}\n        {{~/if~}}\n    {{~/scope~}}\n    </div>\n{{~/inline~}}\n\n{{#*inline \"glossary-first-no-dictionary\"}}\n    {{~> glossary-first noDictionaryTag=true ~}}\n{{/inline}}\n\n{{#*inline \"glossary-first-brief\"}}\n    {{~> glossary-first brief=true ~}}\n{{/inline}}\n\n{{#*inline \"kunyomi\"}}\n    {{~#each definition.kunyomi}}{{.}}{{#unless @last}}, {{/unless}}{{/each~}}\n{{/inline}}\n\n{{#*inline \"onyomi\"}}\n    {{~#each definition.onyomi}}{{.}}{{#unless @last}}, {{/unless}}{{/each~}}\n{{/inline}}\n\n{{#*inline \"onyomi-hiragana\"}}\n    {{~#each definition.onyomi}}{{hiragana .}}{{#unless @last}}, {{/unless}}{{/each~}}\n{{/inline}}\n\n{{#*inline \"reading\"}}\n    {{~#if merge~}}\n        {{~#each definition.reading~}}\n            {{{.}}}\n            {{~#unless @last}}、{{/unless~}}\n        {{~/each~}}\n    {{~else~}}\n        {{~definition.reading~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"sentence\"}}\n    {{~#if definition.cloze~}}\n        {{{definition.cloze.prefix}}}<b>{{{definition.cloze.body}}}</b>{{{definition.cloze.suffix}}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-prefix\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.prefix)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.prefix escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.prefix}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-body\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.body)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.body escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.body}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-body-kana\"}}\n    {{~#if definition.cloze}}{{{definition.cloze.bodyKana}}}{{/if~}}\n{{/inline}}\n\n{{#*inline \"cloze-suffix\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.suffix)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.suffix escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.suffix}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"tags\"}}\n    {{~#mergeTags definition group merge}}{{this}}{{/mergeTags~}}\n{{/inline}}\n\n{{~#*inline \"url\"~}}\n    <a href=\"{{definition.url}}\">{{definition.url}}</a>\n{{~/inline~}}\n\n{{#*inline \"screenshot\"}}\n    {{~#if (hasMedia \"screenshot\")~}}\n        <img src=\"{{getMedia \"screenshot\"}}\" />\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"document-title\"}}\n    {{~context.document.title~}}\n{{/inline}}\n\n{{! Pitch Accents }}\n{{#*inline \"pitch-accent-item\"}}\n    {{~pronunciation format=format reading=reading pitchPositions=positions nasalPositions=nasalPositions devoicePositions=devoicePositions~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-item-disambiguation\"}}\n    {{~#scope~}}\n        {{~set \"exclusive\" (spread exclusiveExpressions exclusiveReadings)~}}\n        {{~#if (op \">\" (property (get \"exclusive\") \"length\") 0)~}}\n            {{~set \"separator\" \"\"~}}\n            <em>({{#each (get \"exclusive\")~}}\n                {{~get \"separator\"~}}{{{.}}}\n            {{~/each}} only) </em>\n        {{~/if~}}\n    {{~/scope~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-list\"}}\n    {{~#if (op \">\" pitchCount 0)~}}\n        {{~#if (op \">\" pitchCount 1)~}}<ol>{{~/if~}}\n        {{~#each pitches~}}\n            {{~#each pitches~}}\n                {{~#if (op \">\" ../../pitchCount 1)~}}<li>{{~/if~}}\n                    {{~> pitch-accent-item-disambiguation~}}\n                    {{~> pitch-accent-item format=../../format~}}\n                {{~#if (op \">\" ../../pitchCount 1)~}}</li>{{~/if~}}\n            {{~/each~}}\n        {{~/each~}}\n        {{~#if (op \">\" pitchCount 1)~}}</ol>{{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"pitch-accents\"}}\n    {{~> pitch-accent-list format='text'~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-graphs\"}}\n    {{~> pitch-accent-list format='graph'~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-graphs-jj\"}}\n    {{~> pitch-accent-list format='graph-jj'~}}\n{{/inline}}\n\n{{#*inline \"pitch-accent-positions\"}}\n    {{~> pitch-accent-list format='position'~}}\n{{/inline}}\n\n{{~#*inline \"pitch-accent-categories\"~}}\n    {{~#each (pitchCategories @root)~}}{{~.~}}{{~#unless @last~}},{{~/unless~}}{{~/each~}}\n{{~/inline~}}\n{{! End Pitch Accents }}\n\n{{#*inline \"phonetic-transcriptions\"}}\n    {{~#if (op \">\" definition.phoneticTranscriptions.length 0)~}}\n        <ul>\n            {{~#each definition.phoneticTranscriptions~}}\n                {{~#each phoneticTranscriptions~}}\n                    <li class=\"pronunciation\" data-pronunciation-type=\"phonetic-transcription\">\n                        {{~set \"any\" false~}}\n                        {{~#each tags~}}\n                            {{~#if (get \"any\")}}, {{else}}<i>({{/if~}}\n                            <span class=\"tag\" data-details=\"{{name}}\">{{name}}</span>\n                            {{~set \"any\" true~}}\n                        {{~/each~}}\n                        {{~#if (get \"any\")}})</i> {{/if~}}\n                        {{ipa~}}\n                    </li>\n                {{~/each~}}\n            {{~/each~}}\n        </ul>\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"clipboard-image\"}}\n    {{~#if (hasMedia \"clipboardImage\")~}}\n        <img src=\"{{getMedia \"clipboardImage\"}}\" />\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"clipboard-text\"}}\n    {{~#if (hasMedia \"clipboardText\")}}{{{getMedia \"clipboardText\"}}}{{/if~}}\n{{/inline}}\n\n{{#*inline \"conjugation\"}}\n    {{~#if (op \">\" definition.inflectionRuleChainCandidates.length 0)~}}\n        {{~set \"multiple\" false~}}\n        {{~#if (op \">\" definition.inflectionRuleChainCandidates.length 1)~}}\n            {{~set \"multiple\" true~}}\n        {{~/if~}}\n        {{~#if (get \"multiple\")~}}<ul>{{/if~}}\n            {{~#each definition.inflectionRuleChainCandidates~}}\n                {{~#if (op \">\" inflectionRules.length 0)~}}\n                    {{~#if (get \"multiple\")~}}<li>{{/if~}}\n                    {{~#each inflectionRules~}}\n                        {{~#if (op \">\" @index 0)}} « {{/if~}}\n                        {{name}}\n                    {{~/each~}}\n                    {{~#if (get \"multiple\")~}}</li>{{/if~}}\n                {{~/if~}}\n            {{~/each~}}\n        {{~#if (get \"multiple\")~}}</ul>{{/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequencies\"}}\n    {{~#if (op \">\" definition.frequencies.length 0)~}}\n        <ul style=\"text-align: left;\">\n        {{~#each definition.frequencies~}}\n            {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                <li>\n                {{~#if (op \"!==\" ../definition.type \"kanji\")~}}\n                    {{~#if (op \"||\" (op \">\" ../uniqueExpressions.length 1) (op \">\" ../uniqueReadings.length 1))~}}(\n                        {{~furigana expression reading~}}\n                    ) {{/if~}}\n                {{~/if~}}\n                {{~dictionaryAlias}}: {{frequency~}}\n                </li>\n            {{~/unless~}}\n        {{~/each~}}\n        </ul>\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"single-frequency-number\"}}\n    {{~#if (op \">\" definition.frequencyNumbers.length 0)~}}\n        {{~#each definition.frequencyNumbers~}}\n            {{~#unless (op \"&&\" ../selectedDictionary (op \"!=\" ../selectedDictionary dictionary))~}}\n                    {{frequency~}}\n            {{~/unless~}}\n        {{~/each~}}\n    {{/if}}\n{{/inline}}\n\n{{#*inline \"frequency-harmonic-rank\"}}\n    {{~#if (op \"===\" definition.frequencyHarmonicRank -1) ~}}\n        9999999\n    {{~else ~}}\n        {{definition.frequencyHarmonicRank}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequency-harmonic-occurrence\"}}\n    {{~#if (op \"===\" definition.frequencyHarmonicOccurrence -1) ~}}\n        0\n    {{~else ~}}\n        {{definition.frequencyHarmonicOccurrence}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequency-average-rank\"}}\n    {{~#if (op \"===\" definition.frequencyAverageRank -1) ~}}\n        9999999\n    {{~else ~}}\n        {{definition.frequencyAverageRank}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"frequency-average-occurrence\"}}\n    {{~#if (op \"===\" definition.frequencyAverageOccurrence -1) ~}}\n        0\n    {{~else ~}}\n        {{definition.frequencyAverageOccurrence}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"stroke-count\"}}\n    {{~#scope~}}\n        {{~set \"found\" false~}}\n        {{~#each definition.stats.misc~}}\n            {{~#if (op \"===\" name \"strokes\")~}}\n                {{~set \"found\" true~}}\n                Stroke count: {{value}}\n            {{~/if~}}\n        {{~/each~}}\n        {{~#if (op \"!\" (get \"found\"))~}}\n            Stroke count: Unknown\n        {{~/if~}}\n    {{~/scope~}}\n{{/inline}}\n\n{{#*inline \"part-of-speech-pretty\"}}\n    {{~#if (op \"===\" . \"v1\")~}}Ichidan verb\n    {{~else if (op \"===\" . \"v5\")~}}Godan verb\n    {{~else if (op \"===\" . \"vk\")~}}Kuru verb\n    {{~else if (op \"===\" . \"vs\")~}}Suru verb\n    {{~else if (op \"===\" . \"vz\")~}}Zuru verb\n    {{~else if (op \"===\" . \"adj-i\")~}}I-adjective\n    {{~else if (op \"===\" . \"n\")~}}Noun\n    {{~else~}}{{.}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"part-of-speech\"}}\n    {{~#scope~}}\n        {{~#if (op \"!==\" definition.type \"kanji\")~}}\n            {{~set \"first\" true~}}\n            {{~#each definition.expressions~}}\n                {{~#each wordClasses~}}\n                    {{~#unless (get (concat \"used_\" .))~}}\n                        {{~> part-of-speech-pretty . ~}}\n                        {{~#unless (get \"first\")}}, {{/unless~}}\n                        {{~set (concat \"used_\" .) true~}}\n                        {{~set \"first\" false~}}\n                    {{~/unless~}}\n                {{~/each~}}\n            {{~/each~}}\n            {{~#if (get \"first\")~}}Unknown{{~/if~}}\n        {{~/if~}}\n    {{~/scope~}}\n{{/inline}}\n\n{{#*inline \"search-query\"}}\n    {{~#multiLine}}{{context.fullQuery}}{{/multiLine~}}\n{{/inline}}\n\n{{#*inline \"popup-selection-text\"}}\n    {{~#if (hasMedia \"popupSelectionText\")}}{{{getMedia \"popupSelectionText\"}}}{{/if~}}\n{{/inline}}\n\n{{#*inline \"sentence-furigana\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFurigana\" definition.cloze.sentence)~}}\n            {{{getMedia \"textFurigana\" definition.cloze.sentence escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.sentence}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{#*inline \"sentence-furigana-plain\"}}\n    {{~#if definition.cloze~}}\n        {{~#if (hasMedia \"textFuriganaPlain\" definition.cloze.sentence)~}}\n            {{{getMedia \"textFuriganaPlain\" definition.cloze.sentence escape=false}}}\n        {{~else~}}\n            {{{definition.cloze.sentence}}}\n        {{~/if~}}\n    {{~/if~}}\n{{/inline}}\n\n{{~#*inline \"url-plain\"~}}\n    {{definition.url}}\n{{~/inline~}}\n\n{{~> (lookup . \"marker\") ~}}",
+                        "suspendNewCards": false,
+                        "displayTagsAndFlags": "always",
+                        "targetTags": [],
+                        "noteGuiMode": "browse",
+                        "apiKey": "",
+                        "downloadTimeout": 0,
+                        "forceSync": false,
+                        "noteDupeCheckFirst": false
+                    },
+                    "sentenceParsing": {
+                        "scanExtent": 200,
+                        "terminationCharacterMode": "custom",
+                        "terminationCharacters": [
+                            {
+                                "enabled": true,
+                                "character1": "「",
+                                "character2": "」",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "『",
+                                "character2": "』",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "\"",
+                                "character2": "\"",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "'",
+                                "character2": "'",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": ".",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "!",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "?",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "．",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "。",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "！",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "？",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "…",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︒",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︕",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︖",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︙",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            }
+                        ]
+                    },
+                    "inputs": {
+                        "hotkeys": [
+                            {
+                                "action": "close",
+                                "argument": "",
+                                "key": "Escape",
+                                "modifiers": [],
+                                "scopes": [
+                                    "popup"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "focusSearchBox",
+                                "argument": "",
+                                "key": "Escape",
+                                "modifiers": [],
+                                "scopes": [
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "previousEntry",
+                                "argument": "3",
+                                "key": "PageUp",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "nextEntry",
+                                "argument": "3",
+                                "key": "PageDown",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "lastEntry",
+                                "argument": "",
+                                "key": "End",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "firstEntry",
+                                "argument": "",
+                                "key": "Home",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "previousEntry",
+                                "argument": "1",
+                                "key": "ArrowUp",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "nextEntry",
+                                "argument": "1",
+                                "key": "ArrowDown",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "historyBackward",
+                                "argument": "",
+                                "key": "KeyB",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "historyForward",
+                                "argument": "",
+                                "key": "KeyF",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "profilePrevious",
+                                "argument": "",
+                                "key": "Minus",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search",
+                                    "web"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "profileNext",
+                                "argument": "",
+                                "key": "Equal",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search",
+                                    "web"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "0",
+                                "key": "KeyE",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "1",
+                                "key": "KeyR",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "2",
+                                "key": "KeyK",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "playAudio",
+                                "argument": "",
+                                "key": "KeyP",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "viewNotes",
+                                "argument": "0",
+                                "key": "KeyV",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "copyHostSelection",
+                                "argument": "",
+                                "key": "KeyC",
+                                "modifiers": [
+                                    "ctrl"
+                                ],
+                                "scopes": [
+                                    "popup"
+                                ],
+                                "enabled": true
+                            }
+                        ]
+                    },
+                    "clipboard": {
+                        "enableBackgroundMonitor": false,
+                        "enableSearchPageMonitor": true,
+                        "autoSearchContent": true,
+                        "maximumSearchLength": 1000
+                    },
+                    "accessibility": {
+                        "forceGoogleDocsHtmlRendering": false
+                    }
+                },
+                "id": "79c6fe67e2c300122f78058adc0e1ab0"
+            }
+        ],
+        "profileCurrent": 1,
+        "global": {
+            "database": {
+                "prefixWildcardsSupported": false
+            },
+            "dataTransmissionConsentShown": true
+        }
+    }
+}
