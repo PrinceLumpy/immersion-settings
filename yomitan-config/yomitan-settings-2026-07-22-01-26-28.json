@@ -1,7 +1,7 @@
 {
     "version": 0,
-    "date": "2026-07-22 01:26:28",
-    "url": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/",
+    "date": "2026-08-13 03:16:59",
+    "url": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/",
     "manifest": {
         "author": "Yomidevs",
         "browser_specific_settings": {
@@ -25,9 +25,9 @@
         "manifest_version": 3,
         "name": "Yomitan Popup Dictionary",
         "short_name": null,
-        "version": "26.6.15.0",
+        "version": "26.7.29.0",
         "background": {
-            "page": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/background.html",
+            "page": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/background.html",
             "preferred_environment": null,
             "scripts": null,
             "service_worker": null,
@@ -42,10 +42,10 @@
                 "exclude_matches": null,
                 "include_globs": null,
                 "js": [
-                    "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/js/app/content-script-wrapper.js"
+                    "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/js/app/content-script-wrapper.js"
                 ],
                 "match_about_blank": true,
-                "match_origin_as_fallback": null,
+                "match_origin_as_fallback": true,
                 "matches": [
                     "http://*/*",
                     "https://*/*",
@@ -64,13 +64,13 @@
             "<all_urls>"
         ],
         "icons": {
-            "16": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon16.png",
-            "19": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon19.png",
-            "32": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon32.png",
-            "38": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon38.png",
-            "48": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon48.png",
-            "64": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon64.png",
-            "128": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon128.png"
+            "16": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon16.png",
+            "19": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon19.png",
+            "32": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon32.png",
+            "38": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon38.png",
+            "48": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon48.png",
+            "64": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon64.png",
+            "128": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon128.png"
         },
         "incognito": "spanning",
         "minimum_chrome_version": "102.0.0.0",
@@ -84,7 +84,7 @@
         "options_ui": {
             "browser_style": false,
             "open_in_tab": true,
-            "page": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/settings.html"
+            "page": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/settings.html"
         },
         "permissions": [
             "storage",
@@ -107,23 +107,27 @@
                 ]
             }
         ],
-        "chrome_settings_overrides": null,
         "action": {
             "browser_style": false,
             "default_area": null,
             "default_icon": {
-                "16": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon16.png",
-                "19": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon19.png",
-                "32": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon32.png",
-                "38": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon38.png",
-                "48": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon48.png",
-                "64": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon64.png",
-                "128": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/images/icon128.png"
+                "16": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon16.png",
+                "19": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon19.png",
+                "32": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon32.png",
+                "38": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon38.png",
+                "48": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon48.png",
+                "64": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon64.png",
+                "128": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/images/icon128.png"
             },
-            "default_popup": "moz-extension://93303b10-efcf-45da-9acc-b28a58000c67/action-popup.html",
+            "default_popup": "moz-extension://56387e89-fc12-4853-9f5b-183a41c3207e/action-popup.html",
             "default_title": "Yomitan",
             "theme_icons": null
         },
+        "page_action": null,
+        "declarative_net_request": null,
+        "default_locale": null,
+        "l10n_resources": null,
+        "chrome_settings_overrides": null,
         "commands": {
             "toggleTextScanning": {
                 "description": "Toggle text scanning on/off",
@@ -169,15 +173,11 @@
             }
         },
         "devtools_page": null,
-        "page_action": null,
-        "sidebar_action": null,
         "omnibox": {
             "keyword": "yomi"
         },
+        "sidebar_action": null,
         "chrome_url_overrides": null,
-        "declarative_net_request": null,
-        "default_locale": null,
-        "l10n_resources": null,
         "protocol_handlers": null,
         "theme_experiment": null,
         "experiment_apis": null,
@@ -199,10 +199,10 @@
     "environment": {
         "browser": "firefox",
         "platform": {
-            "os": "win"
+            "os": "linux"
         }
     },
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:152.0) Gecko/20100101 Firefox/152.0",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0",
     "permissions": {
         "origins": [
             "<all_urls>",
@@ -402,88 +402,18 @@
                     },
                     "dictionaries": [
                         {
-                            "name": "Jitendex.org [2026-04-04]",
-                            "alias": "Jitendex.org [2026-04-04]",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n"
-                        },
-                        {
-                            "name": "JPDBv2㋕",
-                            "alias": "JPDBv2㋕",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "BCCWJ",
-                            "alias": "BCCWJ",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "KANJIDIC [2026-178]",
-                            "alias": "KANJIDIC [2026-178]",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "Jiten",
-                            "alias": "Jiten",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "JMnedict [2026-06-27]",
-                            "alias": "JMnedict [2026-06-27]",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "アクセント辞典",
-                            "alias": "アクセント辞典",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "CC-CEDICT [2026-06-29]",
-                            "alias": "CC-CEDICT [2026-06-29]",
+                            "name": "wty-zh-en",
+                            "alias": "wty-zh-en",
                             "enabled": false,
                             "allowSecondarySearches": false,
                             "definitionsCollapsible": "not-collapsible",
                             "partsOfSpeechFilter": true,
                             "useDeinflections": true,
-                            "styles": ""
+                            "styles": "/* Data-category is locale independent */\n.tag[data-category='gender-feminine'] .tag-label{background-color: #ca4d93;}\n.tag[data-category='gender-masculine'] .tag-label{background-color: #4d82e8;}\n.tag[data-category='gender-neuter'] .tag-label{background-color: #40ac65;}\n\n/* Category colouring is only valid for top-level tags\n   https://github.com/yomidevs/yomitan/blob/master/docs/making-yomitan-dictionaries.md\n   So we need to add them again for the relevant categories used in inner tags.\n*/\ndiv[data-sc-content=\"tags\"] span[data-sc-category=\"frequent\"] {\n    background-color: #5bc0de;\n}\ndiv[data-sc-content=\"tags\"] span[data-sc-category=\"archaism\"] {\n    background-color: #d9534f;\n}\n\ndiv[data-sc-content=\"tags\"] span {\n    font-size: 0.8em;\n    font-weight: bold;\n    padding: 0.2em 0.3em;\n    word-break: keep-all;\n    border-radius: 0.3em;\n    vertical-align: text-bottom;\n    background-color: #565656;\n    color: white;\n    cursor: help;\n    margin-right: 0.25em;\n}\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\ndiv[data-sc-content=\"example-sentence\"] {\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n    border-color: var(--text-color, var(--fg, #333));\n    border-style: none none none solid;\n    border-radius: 0.4rem;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-top: 0.5rem;\n    margin-bottom: 0.5rem;\n    padding: 0.1rem 0.5rem;\n}\nspan[data-sc-content=\"bold-text\"] {\n    font-weight: bold;\n}\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.1em;\n    font-style: italic;\n}\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\ndiv[data-sc-content=\"example-sentence-c\"] {\n    font-size: 0.75em;\n    text-align: right;\n}\ndetails[data-sc-content^=\"details-entry\"] {\n    padding-left: 0;\n}\nsummary[data-sc-content=\"summary-entry\"] {\n    user-select: none;\n    width: max-content;\n    padding: 0.1em 0.2em;\n}\nol[data-sc-content=\"glosses\"] {\n    list-style-type: upper-roman;\n}\n[data-sc-content=\"summary-entry\"]::marker {\n    color: var(--checkbox-disabled-color);\n}\n\n/* Circled numbers (note: they contain a space after the number) */\nol[data-sc-content=\"glosses\"] {\n    list-style-type: none;\n}\nol[data-sc-content=\"glosses\"] > li:nth-child(1) { list-style-type: \"① \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(2) { list-style-type: \"② \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(3) { list-style-type: \"③ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(4) { list-style-type: \"④ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(5) { list-style-type: \"⑤ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(6) { list-style-type: \"⑥ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(7) { list-style-type: \"⑦ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(8) { list-style-type: \"⑧ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(9) { list-style-type: \"⑨ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(10) { list-style-type: \"⑩ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(11) { list-style-type: \"⑪ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(12) { list-style-type: \"⑫ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(13) { list-style-type: \"⑬ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(14) { list-style-type: \"⑭ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(15) { list-style-type: \"⑮ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(16) { list-style-type: \"⑯ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(17) { list-style-type: \"⑰ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(18) { list-style-type: \"⑱ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(19) { list-style-type: \"⑲ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(20) { list-style-type: \"⑳ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(21) { list-style-type: \"㉑ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(22) { list-style-type: \"㉒ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(23) { list-style-type: \"㉓ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(24) { list-style-type: \"㉔ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(25) { list-style-type: \"㉕ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(26) { list-style-type: \"㉖ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(27) { list-style-type: \"㉗ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(28) { list-style-type: \"㉘ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(29) { list-style-type: \"㉙ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(30) { list-style-type: \"㉚ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(31) { list-style-type: \"㉛ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(32) { list-style-type: \"㉜ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(33) { list-style-type: \"㉝ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(34) { list-style-type: \"㉞ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(35) { list-style-type: \"㉟ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(36) { list-style-type: \"㊱ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(37) { list-style-type: \"㊲ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(38) { list-style-type: \"㊳ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(39) { list-style-type: \"㊴ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(40) { list-style-type: \"㊵ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(41) { list-style-type: \"㊶ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(42) { list-style-type: \"㊷ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(43) { list-style-type: \"㊸ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(44) { list-style-type: \"㊹ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(45) { list-style-type: \"㊺ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(46) { list-style-type: \"㊻ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(47) { list-style-type: \"㊼ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(48) { list-style-type: \"㊽ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(49) { list-style-type: \"㊾ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(50) { list-style-type: \"㊿ \"; }\n\nsummary[data-sc-content=\"summary-entry\"] {\n    list-style-position: inside;\n    color: var(--text-color-light4);\n}\ndetails[data-sc-content^=\"details-entry-Grammar\"] summary[data-sc-content=\"summary-entry\"],\ndetails[data-sc-content^=\"details-entry-Etymology\"] summary[data-sc-content=\"summary-entry\"] {\n    font-weight: bold;\n}\n\n/* Make the label bold, and group synonyms inline, separated by ' • ' */\ndiv[data-sc-content=\"synonyms\"] div[data-sc-content=\"synonyms-label\"] {\n    font-weight: bold;\n    display: block;\n    margin-top: 0.3em;\n}\ndiv[data-sc-content=\"synonyms\"] ul[data-sc-content=\"synonyms-list\"] {\n    list-style: none;\n    padding-left: 1.5em;\n}\ndiv[data-sc-content=\"synonyms\"] ul[data-sc-content=\"synonyms-list\"] li {\n    display: inline;\n}\ndiv[data-sc-content=\"synonyms\"] ul[data-sc-content=\"synonyms-list\"] li:not(:last-child)::after {\n    content: \" • \";\n}\n\ndetails[data-sc-content^=\"details-entry\"][open=\"\"] summary[data-sc-content=\"summary-entry\"] {\n    color: var(--text-color);\n}\ndetails[data-sc-content^=\"details-entry\"][open=\"\"] summary[data-sc-content=\"summary-entry\"]::marker {\n    color: var(--text-color);\n}\nsummary[data-sc-content=\"summary-entry\"]:hover {\n    border-radius: 0.4em;\n    background-color: var(--notification-background-color-lighter);\n    cursor: pointer;\n    color: var(--text-color);\n}\nsummary[data-sc-content=\"summary-entry\"] ~ div {\n    margin: 0.5em 0;\n}\ndiv[data-sc-content=\"backlink\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\n/* Glossary dictionary only */\n/* None of this interferes with other dictionaries, but if in the future it does,\n*  then consider making a separate css file for each dictionary. */\ndiv[data-sc-content=\"sense-label\"] {\n    color: #777;\n}\n/* These two are for compact mode. Unfortunately, due to css insertion rules,\n*  we can't select [data-glossary-layout-mode^=compact] as Yomitan does */\n/* Remove the gloss separator */\n.gloss-item:has(.structured-content) ~ .gloss-item:not(:first-child)::before {\n    display: none;\n}\n/* Remove the newline left by the now empty gloss separator */\n.gloss-separator {\n    display: none !important;\n}\n"
                         },
                         {
-                            "name": "500idioms",
-                            "alias": "500idioms",
+                            "name": "CC-CEDICT [2026-07-24]",
+                            "alias": "CC-CEDICT [2026-07-24]",
                             "enabled": false,
                             "allowSecondarySearches": false,
                             "definitionsCollapsible": "not-collapsible",
@@ -505,6 +435,86 @@
                             "name": "BLCUmixed",
                             "alias": "BLCUmixed",
                             "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "500idioms",
+                            "alias": "500idioms",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "KANJIDIC [2026-205]",
+                            "alias": "KANJIDIC [2026-205]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "Jitendex.org [2026-07-09]",
+                            "alias": "Jitendex.org [2026-07-09]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n"
+                        },
+                        {
+                            "name": "JMnedict [2026-07-25]",
+                            "alias": "JMnedict [2026-07-25]",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BCCWJ",
+                            "alias": "BCCWJ",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "JPDBv2㋕",
+                            "alias": "JPDBv2㋕",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "Jiten",
+                            "alias": "Jiten",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "アクセント辞典",
+                            "alias": "アクセント辞典",
+                            "enabled": true,
                             "allowSecondarySearches": false,
                             "definitionsCollapsible": "not-collapsible",
                             "partsOfSpeechFilter": true,
@@ -600,20 +610,125 @@
                                 "type": "term"
                             },
                             {
-                                "name": "Reading",
-                                "icon": "small-circle",
-                                "deck": "",
-                                "model": "",
-                                "fields": {},
-                                "type": "term"
-                            },
-                            {
                                 "name": "Kanji",
-                                "icon": "big-circle",
-                                "deck": "",
-                                "model": "",
-                                "fields": {},
-                                "type": "kanji"
+                                "icon": "small-circle",
+                                "deck": "Japanese::Kanji",
+                                "model": "JA-KanjiRTK",
+                                "fields": {
+                                    "Kanji": {
+                                        "value": "{expression}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "English": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Onyomi": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Kunyomi": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Nanori": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Keyword": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "PersonalMnemonic": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "KD_Components": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "KD_Mnemonic": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "KD_Description": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "KD_Lookalikes": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "KD_UsedIn": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "KD_Jukugo": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Components": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Koohii Story 1": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Koohii Story 2": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Examples": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "RTK Index": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Frequency": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Kanji Radical": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "JLPT Level": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Jouyou Grade": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Radical Number": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Radical Strokes": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Radical Reading": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Traditional Form": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Classification": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Number of Strokes": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    }
+                                },
+                                "type": "term"
                             }
                         ],
                         "duplicateScope": "deck",
@@ -632,7 +747,7 @@
                     },
                     "sentenceParsing": {
                         "scanExtent": 200,
-                        "terminationCharacterMode": "custom",
+                        "terminationCharacterMode": "newlines",
                         "terminationCharacters": [
                             {
                                 "enabled": true,
@@ -1169,88 +1284,18 @@
                     },
                     "dictionaries": [
                         {
-                            "name": "Jitendex.org [2026-04-04]",
-                            "alias": "Jitendex.org [2026-04-04]",
+                            "name": "wty-zh-en",
+                            "alias": "wty-zh-en",
                             "enabled": false,
                             "allowSecondarySearches": false,
                             "definitionsCollapsible": "not-collapsible",
                             "partsOfSpeechFilter": true,
                             "useDeinflections": true,
-                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n"
+                            "styles": "/* Data-category is locale independent */\n.tag[data-category='gender-feminine'] .tag-label{background-color: #ca4d93;}\n.tag[data-category='gender-masculine'] .tag-label{background-color: #4d82e8;}\n.tag[data-category='gender-neuter'] .tag-label{background-color: #40ac65;}\n\n/* Category colouring is only valid for top-level tags\n   https://github.com/yomidevs/yomitan/blob/master/docs/making-yomitan-dictionaries.md\n   So we need to add them again for the relevant categories used in inner tags.\n*/\ndiv[data-sc-content=\"tags\"] span[data-sc-category=\"frequent\"] {\n    background-color: #5bc0de;\n}\ndiv[data-sc-content=\"tags\"] span[data-sc-category=\"archaism\"] {\n    background-color: #d9534f;\n}\n\ndiv[data-sc-content=\"tags\"] span {\n    font-size: 0.8em;\n    font-weight: bold;\n    padding: 0.2em 0.3em;\n    word-break: keep-all;\n    border-radius: 0.3em;\n    vertical-align: text-bottom;\n    background-color: #565656;\n    color: white;\n    cursor: help;\n    margin-right: 0.25em;\n}\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\ndiv[data-sc-content=\"example-sentence\"] {\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n    border-color: var(--text-color, var(--fg, #333));\n    border-style: none none none solid;\n    border-radius: 0.4rem;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-top: 0.5rem;\n    margin-bottom: 0.5rem;\n    padding: 0.1rem 0.5rem;\n}\nspan[data-sc-content=\"bold-text\"] {\n    font-weight: bold;\n}\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.1em;\n    font-style: italic;\n}\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\ndiv[data-sc-content=\"example-sentence-c\"] {\n    font-size: 0.75em;\n    text-align: right;\n}\ndetails[data-sc-content^=\"details-entry\"] {\n    padding-left: 0;\n}\nsummary[data-sc-content=\"summary-entry\"] {\n    user-select: none;\n    width: max-content;\n    padding: 0.1em 0.2em;\n}\nol[data-sc-content=\"glosses\"] {\n    list-style-type: upper-roman;\n}\n[data-sc-content=\"summary-entry\"]::marker {\n    color: var(--checkbox-disabled-color);\n}\n\n/* Circled numbers (note: they contain a space after the number) */\nol[data-sc-content=\"glosses\"] {\n    list-style-type: none;\n}\nol[data-sc-content=\"glosses\"] > li:nth-child(1) { list-style-type: \"① \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(2) { list-style-type: \"② \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(3) { list-style-type: \"③ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(4) { list-style-type: \"④ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(5) { list-style-type: \"⑤ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(6) { list-style-type: \"⑥ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(7) { list-style-type: \"⑦ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(8) { list-style-type: \"⑧ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(9) { list-style-type: \"⑨ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(10) { list-style-type: \"⑩ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(11) { list-style-type: \"⑪ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(12) { list-style-type: \"⑫ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(13) { list-style-type: \"⑬ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(14) { list-style-type: \"⑭ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(15) { list-style-type: \"⑮ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(16) { list-style-type: \"⑯ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(17) { list-style-type: \"⑰ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(18) { list-style-type: \"⑱ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(19) { list-style-type: \"⑲ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(20) { list-style-type: \"⑳ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(21) { list-style-type: \"㉑ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(22) { list-style-type: \"㉒ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(23) { list-style-type: \"㉓ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(24) { list-style-type: \"㉔ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(25) { list-style-type: \"㉕ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(26) { list-style-type: \"㉖ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(27) { list-style-type: \"㉗ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(28) { list-style-type: \"㉘ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(29) { list-style-type: \"㉙ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(30) { list-style-type: \"㉚ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(31) { list-style-type: \"㉛ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(32) { list-style-type: \"㉜ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(33) { list-style-type: \"㉝ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(34) { list-style-type: \"㉞ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(35) { list-style-type: \"㉟ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(36) { list-style-type: \"㊱ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(37) { list-style-type: \"㊲ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(38) { list-style-type: \"㊳ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(39) { list-style-type: \"㊴ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(40) { list-style-type: \"㊵ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(41) { list-style-type: \"㊶ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(42) { list-style-type: \"㊷ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(43) { list-style-type: \"㊸ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(44) { list-style-type: \"㊹ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(45) { list-style-type: \"㊺ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(46) { list-style-type: \"㊻ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(47) { list-style-type: \"㊼ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(48) { list-style-type: \"㊽ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(49) { list-style-type: \"㊾ \"; }\nol[data-sc-content=\"glosses\"] > li:nth-child(50) { list-style-type: \"㊿ \"; }\n\nsummary[data-sc-content=\"summary-entry\"] {\n    list-style-position: inside;\n    color: var(--text-color-light4);\n}\ndetails[data-sc-content^=\"details-entry-Grammar\"] summary[data-sc-content=\"summary-entry\"],\ndetails[data-sc-content^=\"details-entry-Etymology\"] summary[data-sc-content=\"summary-entry\"] {\n    font-weight: bold;\n}\n\n/* Make the label bold, and group synonyms inline, separated by ' • ' */\ndiv[data-sc-content=\"synonyms\"] div[data-sc-content=\"synonyms-label\"] {\n    font-weight: bold;\n    display: block;\n    margin-top: 0.3em;\n}\ndiv[data-sc-content=\"synonyms\"] ul[data-sc-content=\"synonyms-list\"] {\n    list-style: none;\n    padding-left: 1.5em;\n}\ndiv[data-sc-content=\"synonyms\"] ul[data-sc-content=\"synonyms-list\"] li {\n    display: inline;\n}\ndiv[data-sc-content=\"synonyms\"] ul[data-sc-content=\"synonyms-list\"] li:not(:last-child)::after {\n    content: \" • \";\n}\n\ndetails[data-sc-content^=\"details-entry\"][open=\"\"] summary[data-sc-content=\"summary-entry\"] {\n    color: var(--text-color);\n}\ndetails[data-sc-content^=\"details-entry\"][open=\"\"] summary[data-sc-content=\"summary-entry\"]::marker {\n    color: var(--text-color);\n}\nsummary[data-sc-content=\"summary-entry\"]:hover {\n    border-radius: 0.4em;\n    background-color: var(--notification-background-color-lighter);\n    cursor: pointer;\n    color: var(--text-color);\n}\nsummary[data-sc-content=\"summary-entry\"] ~ div {\n    margin: 0.5em 0;\n}\ndiv[data-sc-content=\"backlink\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\n/* Glossary dictionary only */\n/* None of this interferes with other dictionaries, but if in the future it does,\n*  then consider making a separate css file for each dictionary. */\ndiv[data-sc-content=\"sense-label\"] {\n    color: #777;\n}\n/* These two are for compact mode. Unfortunately, due to css insertion rules,\n*  we can't select [data-glossary-layout-mode^=compact] as Yomitan does */\n/* Remove the gloss separator */\n.gloss-item:has(.structured-content) ~ .gloss-item:not(:first-child)::before {\n    display: none;\n}\n/* Remove the newline left by the now empty gloss separator */\n.gloss-separator {\n    display: none !important;\n}\n"
                         },
                         {
-                            "name": "JPDBv2㋕",
-                            "alias": "JPDBv2㋕",
-                            "enabled": false,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "BCCWJ",
-                            "alias": "BCCWJ",
-                            "enabled": false,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "KANJIDIC [2026-178]",
-                            "alias": "KANJIDIC [2026-178]",
-                            "enabled": false,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "Jiten",
-                            "alias": "Jiten",
-                            "enabled": false,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "JMnedict [2026-06-27]",
-                            "alias": "JMnedict [2026-06-27]",
-                            "enabled": false,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "アクセント辞典",
-                            "alias": "アクセント辞典",
-                            "enabled": false,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "CC-CEDICT [2026-06-29]",
-                            "alias": "CC-CEDICT [2026-06-29]",
-                            "enabled": true,
-                            "allowSecondarySearches": false,
-                            "definitionsCollapsible": "not-collapsible",
-                            "partsOfSpeechFilter": true,
-                            "useDeinflections": true,
-                            "styles": ""
-                        },
-                        {
-                            "name": "500idioms",
-                            "alias": "500idioms",
+                            "name": "CC-CEDICT [2026-07-24]",
+                            "alias": "CC-CEDICT [2026-07-24]",
                             "enabled": true,
                             "allowSecondarySearches": false,
                             "definitionsCollapsible": "not-collapsible",
@@ -1271,6 +1316,86 @@
                         {
                             "name": "BLCUmixed",
                             "alias": "BLCUmixed",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "500idioms",
+                            "alias": "500idioms",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "KANJIDIC [2026-205]",
+                            "alias": "KANJIDIC [2026-205]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "Jitendex.org [2026-07-09]",
+                            "alias": "Jitendex.org [2026-07-09]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n"
+                        },
+                        {
+                            "name": "JMnedict [2026-07-25]",
+                            "alias": "JMnedict [2026-07-25]",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "BCCWJ",
+                            "alias": "BCCWJ",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "JPDBv2㋕",
+                            "alias": "JPDBv2㋕",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "Jiten",
+                            "alias": "Jiten",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "アクセント辞典",
+                            "alias": "アクセント辞典",
                             "enabled": false,
                             "allowSecondarySearches": false,
                             "definitionsCollapsible": "not-collapsible",
@@ -1762,7 +1887,7 @@
                 "id": "79c6fe67e2c300122f78058adc0e1ab0"
             }
         ],
-        "profileCurrent": 1,
+        "profileCurrent": 0,
         "global": {
             "database": {
                 "prefixWildcardsSupported": false
