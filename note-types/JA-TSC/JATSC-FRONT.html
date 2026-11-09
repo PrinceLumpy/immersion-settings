@@ -173,30 +173,30 @@ Wed Apr 30 11:17:13 AM UTC 2025
             }
         }
 
-function color_target_word() {
-    /* Color bold words in the back sentence by pitch accent type. */
-    const num_text = document.getElementById("pitchnum_hidden")?.textContent || "";
-    const kana = (document.getElementById("kanaword_hidden")?.textContent || "").replace(/[^\u3040-\u30FF]/g, "");
-    const is_kifuku = `{{Tags}}`.toLowerCase().split(" ").includes("kifuku");
+        function color_target_word() {
+            /* Color bold words in the back sentence by pitch accent type. */
+            const num_text = document.getElementById("pitchnum_hidden")?.textContent || "";
+            const kana = (document.getElementById("kanaword_hidden")?.textContent || "").replace(/[^\u3040-\u30FF]/g, "");
+            const is_kifuku = `{{Tags}}`.toLowerCase().split(" ").includes("kifuku");
 
-    // mora count: small ゃゅょぁぃぅぇぉ (and katakana) join the previous kana
-    const moras = kana.replace(/[ゃゅょぁぃぅぇぉャュョァィゥェォ]/g, "").length;
+            // mora count: small ゃゅょぁぃぅぇぉ (and katakana) join the previous kana
+            const moras = kana.replace(/[ゃゅょぁぃぅぇぉャュョァィゥェォ]/g, "").length;
 
-    let color = "#5f5f5f"; // unknown
-    const m = num_text.match(/\d+/);
-    if (m) {
-        const n = parseInt(m[0], 10);
-        if (is_kifuku) color = "purple";
-        else if (n === 0) color = "#3366CC";                       // heiban
-        else if (n === 1) color = "#ea3131";                       // atamadaka
-        else if (moras && n === moras) color = "#4caf50";            // odaka
-        else if (moras && n > 1 && n < moras) color = "#eb8500";   // nakadaka
-    }
+            let color = "#5f5f5f"; // unknown
+            const m = num_text.match(/\d+/);
+            if (m) {
+                const n = parseInt(m[0], 10);
+                if (is_kifuku) color = "purple";
+                else if (n === 0) color = "#3366CC";                       // heiban
+                else if (n === 1) color = "#ea3131";                       // atamadaka
+                else if (moras && n === moras) color = "#4caf50";            // odaka
+                else if (moras && n > 1 && n < moras) color = "#eb8500";   // nakadaka
+            }
 
-    for (const el of document.querySelectorAll(".tsc__back_side .jpsentence b, .tsc__back_side .jpsentence strong")) {
-        el.style.color = color;
-    }
-}
+            for (const el of document.querySelectorAll(".tsc__back_side .jpsentence b, .tsc__back_side .jpsentence strong")) {
+                el.style.color = color;
+            }
+        }
 
         function exclude_tags(all_tags, excluded_tags) {
             try {
@@ -401,7 +401,7 @@ function color_target_word() {
                 remove_pitch_brackets();
                 hide_duplicate_pitch_number();
                 hint_definition_from_tags();
-								 color_target_word();
+				color_target_word();
             } else {
                 console.log("Initializing the front side...");
                 toggle_visible_images_on_front();

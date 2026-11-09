@@ -90,8 +90,7 @@ strong {
 
 .card,
 ruby rt {
-    font-family: "Noto Sans JP","Noto Serif", "Noto Serif CJK JP", "IPAexMincho", "Yu Mincho", "Local Mincho", "Liberation Serif",
-        "Times New Roman", Times, Georgia, Serif;
+    font-family: "Noto Sans JP"
 }
 
 .card1 {
@@ -197,6 +196,9 @@ header > div:not(:last-child) {
 
 .jpsentence {
     font-size: 35px;
+    width: calc(100% - 36px);
+    margin-top: 18px;
+    box-sizing: border-box;
 }
 
 .jpsentence b {
