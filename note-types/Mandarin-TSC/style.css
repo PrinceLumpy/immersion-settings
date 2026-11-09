@@ -1,0 +1,57 @@
+@font-face {
+  font-family: notoSansSC;
+  src: url("_NotoSansSC-Regular.ttf");
+}
+
+.card {
+  font-family: notoSansSC;
+  text-align: center;
+}
+
+.sentence {
+  font-size: 30px;
+  line-height: 1.2;
+  color: #c8bfaf;
+  letter-spacing: 0.02em;
+}
+
+.sentence b {
+  color: #ff6b6b;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 107, 107, 0.7);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pronunciation {
+  font-size: 25px;
+  color: #8a7f72;
+  letter-spacing: 0.08em;
+}
+
+.meaning {
+  font-size: 25px;
+  color: #e8e0d0;
+  font-style: italic;
+}
+
+/* the "Show Hint" link */
+a.hint {
+  color: #4a4540;
+  font-size: 13px;
+}
+
+/* every revealed hint */
+div.hint,
+div.hint * {
+  font-size: 20px;
+  color: #4a4540 !important;
+  font-style: italic;
+  line-height: 1.4;
+}
