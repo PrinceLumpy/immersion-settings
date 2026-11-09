@@ -1,0 +1,383 @@
+<!--
+mpvacious cards, version 20.0
+Wed Apr 30 11:17:13 AM UTC 2025
+-->
+
+<div class="wrap">
+    <header>
+        {{#Focus}}
+        <div class="tags">{{Focus}}</div>
+        {{/Focus}}
+        <!-- Tags -->
+        {{#Tags}}
+        <div class="tags">{{Tags}}</div>
+        {{/Tags}}
+    </header>
+
+    <!-- Used to print JS-related errors to the user. -->
+    <div id="error_report">
+        <pre class="error_msg"></pre>
+    </div>
+
+    <!-- Front side. This tag is hidden on the back. -->
+    <div class="tsc__front_side">
+        <div class="sent-center" id="tsc" visible="true">
+            <div class="jpsentence" lang="ja">
+                {{edit:furigana:SentKanji}}
+                <!-- If SentKanji is empty, show SentFurigana with furigana hidden. -->
+                {{^SentKanji}}
+                <div class="nokana">{{edit:kanji:SentFurigana}}</div>
+                {{/SentKanji}}
+            </div>
+        </div>
+
+        <div class="sent-center" id="jp1k-tsc" visible="false">
+            <!-- JP1K mode is active only if note has been tagged as jp1k. -->
+            <div class="jpsentence" lang="ja">{{furigana:SentFurigana}}</div>
+            <button type="button" class="toggle_furigana_button" title="Press P to toggle kanji readings.">
+                Toggle Readings
+            </button>
+        </div>
+    </div>
+
+    <!-- Images (can be shown on both the front side and the back side).
+         If a card has the "imageonfront" tag set, show images on the front side. -->
+    {{#Image}}
+    <details class="images-details">
+        <summary>Image</summary>
+        <div class="images">{{Image}}</div>
+    </details>
+    {{/Image}}
+
+    <!-- Back side. This tag is hidden on the front. -->
+    <div class="tsc__back_side">
+        <div class="sent-center">
+            <div class="jpsentence" lang="ja">
+                <div class="background">
+                    <!-- Only RT tags are drawn on the background. -->
+                    {{furigana:SentFurigana}}
+                    <!-- If SentFurigana is empty, show SentKanji. -->
+                    {{^SentFurigana}}{{furigana:SentKanji}}{{/SentFurigana}}
+                </div>
+                <div class="overlay">
+                    {{edit:furigana:SentFurigana}}
+                    <!-- If SentFurigana is empty, show SentKanji. -->
+                    {{^SentFurigana}}{{edit:furigana:SentKanji}}{{/SentFurigana}}
+                </div>
+            </div>
+            {{#SentEng}}
+            <div class="ensentence" lang="en">{{hint:SentEng}}</div>
+            {{/SentEng}}
+        </div>
+
+        <!-- Definitions -->
+        {{#VocabDef}}
+        <section class="headword_section">
+            <div class="vocab" id="tsc__headword_section">
+                <!-- Using JS, insert vocabulary audio and sentence audio here. -->
+                <div class="reading" id="pitchpattern" lang="ja">
+                    {{VocabPitchPattern}}
+                    <!-- If VocabPitchPattern is empty, show VocabFurigana. -->
+                    {{^VocabPitchPattern}}{{text:kana:VocabFurigana}}{{/VocabPitchPattern}}
+                </div>
+                {{#VocabPitchNum}}
+                <span class="tags" id="pitchnum">{{text:VocabPitchNum}}</span>
+                {{/VocabPitchNum}}
+                <!-- Word in kanji -->
+                {{#VocabKanji}}
+                <div class="target_word" lang="ja">{{text:kanji:VocabKanji}}</div>
+                {{/VocabKanji}}
+            </div>
+            <div class="definitions">{{edit:furigana:VocabDef}}</div>
+        </section>
+        {{/VocabDef}}
+
+        <!-- Fallback location for audio files -->
+        <div id="tsc__backside_audio"></div>
+
+        <!-- Notes -->
+        {{#Notes}}
+        <details open class="notes">
+            <summary>Notes</summary>
+            <div>{{furigana:Notes}}</div>
+        </details>
+        {{/Notes}}
+
+        <!-- Place images here -->
+        <div id="tsc__backside_images"></div>
+
+        <hr>
+
+        <footer>
+            <!-- Sentence links -->
+            {{#SentKanji}}
+            <a
+                href="https://simplytranslate.org/?engine=google&text={{text:kanji:SentKanji}}&sl=ja&tl=en"
+                title="Translate with SimplyTranslate"
+                >Translate</a
+            >
+            <a href="https://jisho.org/search?keyword={{text:kanji:SentKanji}}" title="Sentence on Jisho">Jisho</a>
+            <a
+                href="https://duckduckgo.com/?q={{text:kanji:SentKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp"
+                title="Search images"
+                >Images</a
+            >
+            {{/SentKanji}}
+            <!-- Vocab links -->
+            {{#VocabKanji}}
+            <a href="http://www.weblio.jp/content/{{text:VocabKanji}}" title="Vocab on Weblio">Weblio</a>
+            <a href="https://wadoku.de/search/?q={{text:VocabKanji}}" title="Vocab on Wadoku">Wadoku</a>
+            {{/VocabKanji}}
+        </footer>
+    </div>
+</div>
+<!-- /wrap -->
+
+<div style="display: none">
+    <div id="vocab_kanji_hidden">{{VocabKanji}}</div>
+    <div id="pitchnum_hidden">{{VocabPitchNum}}</div>
+    <div id="kanaword_hidden">{{kana:VocabFurigana}}</div>
+</div>
+
+<script>
+    (function () {
+        "use strict";
+        const IMG_ON_FRONT_TAG = "imageonfront";
+        const HIDDEN_TAGS = new Set([IMG_ON_FRONT_TAG, "tolearn", "marked"]);
+        const JP1K_TAG = "jp1k";
+        const IS_JP1K_MODE = `{{Tags}}`.toLowerCase().split(" ").includes(JP1K_TAG);
+
+        function is_back_revealed() {
+            return Boolean(document.querySelector(".tsc__answer_revealed"));
+        }
+
+        function move_play_buttons_inside_headword() {
+            /*
+            Move play buttons inside the headword section.
+            Each play button looks like this:
+            <a class="replay-button"><svg><circle>...</circle>...</svg></a>
+            */
+            const headword_section =
+                document.querySelector("#tsc__headword_section") || document.querySelector("#tsc__backside_audio");
+            if (headword_section) {
+                headword_section.prepend(document.querySelector("#sent-audio"));
+                headword_section.prepend(document.querySelector("#vocab-audio"));
+            }
+        }
+
+        function exclude_tags(all_tags, excluded_tags) {
+            try {
+                /*
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference
+                */
+                return all_tags.difference(excluded_tags);
+            } catch (e) {
+                /*
+                Some users have reported that the difference method does not work on Anki on Windows.
+                */
+                console.log("Set.prototype.difference() is not available.");
+                return new Set([...all_tags].filter((elem) => !excluded_tags.has(elem)));
+            }
+        }
+
+        function separate_tags_list() {
+            /* Splits tags into separate divs */
+            const header = document.querySelector("header");
+            if (!header) {
+                return;
+            }
+            const tags_split = new Set(`{{Focus}} {{Tags}}`.split(" ").filter((word) => word.length > 0));
+
+            header.innerHTML = "";
+
+            for (const tag of exclude_tags(tags_split, HIDDEN_TAGS)) {
+                const tag_elem = document.createElement("div");
+                tag_elem.className = "tags";
+                tag_elem.innerText = tag;
+                header.appendChild(tag_elem);
+            }
+        }
+
+        function is_mobile_anki_app() {
+            /* Return true if running on AnkiDroid. */
+            return document.getElementsByTagName("html")[0].classList.contains("mobile");
+        }
+
+        function move_images_under_notes() {
+            /* When the back side is visible, Images should be placed after (under) notes. */
+            const images_anchor = document.querySelector("#tsc__backside_images");
+            if (images_anchor) {
+                for (const img_container of document.querySelectorAll(".images-details")) {
+                    images_anchor.after(img_container);
+                }
+            }
+        }
+
+        function toggle_visible_images_on_front() {
+            /* If a card has the "imageonfront" tag set, show images on the front side. */
+            const images_on_front_enabled = `{{Tags}}`.split(" ").includes(IMG_ON_FRONT_TAG);
+            console.log(`Images on front are ${images_on_front_enabled ? "enabled" : "disabled"}.`);
+            for (const img_container of document.querySelectorAll(".images-details")) {
+                img_container.setAttribute("images_on_front", images_on_front_enabled);
+            }
+        }
+
+        function hide_images_details_on_mobile() {
+            /* Hide images on mobile devices. */
+            const is_mobile = is_mobile_anki_app();
+            for (const details_element of document.querySelectorAll(".images-details")) {
+                details_element.toggleAttribute("open", !is_mobile);
+            }
+        }
+
+        function toggle_jp1k_mode() {
+            /*
+            If the user has added the "JP1K" tag to the note,
+            show furigana on the front when hovered over.
+            */
+            const tsc_element = document.querySelector("#tsc");
+            const jp1k_element = document.querySelector("#jp1k-tsc");
+            jp1k_element.setAttribute("visible", IS_JP1K_MODE);
+            tsc_element.setAttribute("visible", !IS_JP1K_MODE);
+        }
+
+        function toggle_jp1k_furigana() {
+            /* Flip visibilty of all RT tags. */
+            if (IS_JP1K_MODE) {
+                for (const element of document.querySelectorAll("#jp1k-tsc ruby rt")) {
+                    element.style.visibility = !element.style.visibility ? "visible" : "";
+                }
+            }
+        }
+
+        function click_all_hints() {
+            /* Reveal all hints by clicking on all hint elements.
+               The "hint" tag is set by Anki when {{hint:SentEng}} syntax is used. */
+            for (const elem of document.querySelectorAll("a.hint")) {
+                elem.click();
+            }
+        }
+
+        function listen_to_key(key_code, callback) {
+            /* Press key_code to call callback */
+            document.addEventListener(
+                "keydown",
+                (event) => {
+                    if (event.code === key_code && typeof callback === "function") {
+                        callback();
+                    }
+                },
+                true
+            );
+        }
+
+        function tweak_reveal_english_sentence_button() {
+            /* Change the text on the button that reveals the English translation:
+               <div class="ensentence" lang="en">{{hint:SentEng}}</div> */
+            const elem = document.querySelector("div.ensentence > a.hint");
+            if (elem) {
+                elem.innerText = "Reveal English translation";
+                elem.setAttribute("title", "Press X to reveal English translation.");
+            }
+        }
+
+        function remove_audio_if_marked_X() {
+            /* Insert x or × inside the VocabAudio field to hide it.
+               This mark is used to prevent AJT Japanese from attempting to fill the field
+               when the audio suggested by AJT Japanese is incorrect. */
+            const pr = document.getElementById("vocab-audio");
+            if (pr && pr.innerText.match(/^[x×]/i)) {
+                pr.style.display = "none";
+            }
+        }
+
+        function remove_pitch_brackets() {
+            /* VocabPitchNum has id "pitchnum"
+               Sometimes the pitch number is added in brackets (by Rikaitan).
+               Remove the brackets. */
+            const tags = document.getElementById("pitchnum");
+            if (tags !== null) {
+                tags.innerHTML = tags.innerHTML.replace(/[\[\]]/g, "");
+            }
+        }
+
+        function setup_reveal_furigana_button_listener() {
+            /* <button type="button" class="toggle_furigana_button">...</button> */
+            for (const button of document.querySelectorAll(".toggle_furigana_button")) {
+                button.addEventListener("click", (event) => {
+                    toggle_jp1k_furigana();
+                });
+            }
+        }
+
+        function hide_duplicate_pitch_number() {
+            /* Pitch graphs added by AJT Japanese may already include pitch numbers.
+               But this template also shows the pitch number if it was added to the VocabPitchNum field. */
+            const template_pitch_num = document.getElementById("pitchnum"); // Pitch number from VocabPitchNum
+            const addon_pitch_num = document.querySelector(".pitch_number"); // This tag is used by AJT Japanese.
+            if (template_pitch_num && addon_pitch_num) {
+                // If both are present, hide one.
+                template_pitch_num.remove();
+            }
+        }
+
+        function initialize() {
+            /* Entry point. */
+            console.log("Card script initializing...");
+            const isBack = is_back_revealed();
+
+            /* Functions that run on both front and back. */
+            separate_tags_list();
+            hide_images_details_on_mobile();
+            listen_to_key("KeyX", click_all_hints); // Press "x" to reveal all hints.
+
+            if (isBack) {
+                console.log("Initializing the back side...");
+                move_play_buttons_inside_headword();
+                move_images_under_notes();
+                tweak_reveal_english_sentence_button();
+                remove_audio_if_marked_X();
+                remove_pitch_brackets();
+                hide_duplicate_pitch_number();
+            } else {
+                console.log("Initializing the front side...");
+                toggle_visible_images_on_front();
+                toggle_jp1k_mode();
+                /* When in the JP1K mode, press "p" to reveal furigana for all words. */
+                listen_to_key("KeyP", toggle_jp1k_furigana);
+                setup_reveal_furigana_button_listener();
+            }
+            console.log("Card script initialization complete.");
+        }
+
+        function error_to_html(error_text) {
+            const err_div_element = document.getElementById("error_report");
+            const err_msg_element = err_div_element.querySelector(".error_msg");
+            err_div_element.setAttribute("error_occurred", true);
+            err_msg_element.innerText = error_text;
+        }
+
+        function initialize_and_catch_errors() {
+            try {
+                initialize();
+            } catch (ex) {
+                console.error("AJT Error", ex.name, ex.message);
+                error_to_html(ex.stack);
+                throw ex;
+            }
+        }
+
+        /* Wait for the DOM to be ready */
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initialize_and_catch_errors);
+        } else {
+            /* DOM is already ready */
+            initialize_and_catch_errors();
+        }
+    })();
+</script>
+<script>
+/* AJT Japanese JS 25.11.12.1 */
+/* DO NOT EDIT! This code will be overwritten by AJT Japanese. */
+(function () { "use strict"; const info_title = "詳細"; const parts_of_speech = new Map([ ["unknown", "unknown"], ["other", "その他"], ["filler", "フィラー"], ["adverb", "副詞"], ["bound_auxiliary", "助動詞"], ["particle", "助詞"], ["verb", "動詞"], ["noun", "名詞"], ["i_adjective", "形容詞"], ["interjection", "感動詞"], ["conjunction", "接続詞"], ["prefix", "接頭詞"], ["symbol", "記号"], ["adnominal_adjective", "連体詞"], ]); function ajt__kana_to_moras(text) { return text.match(/.[°゚]?[ァィゥェォャュョぁぃぅぇぉゃゅょ]?/gu); } function ajt__norm_handakuten(text) { return text.replace(/\u{b0}/gu, "\u{309a}"); } function ajt__make_pattern(kana, pitch_type, pitch_num) { const moras = ajt__kana_to_moras(ajt__norm_handakuten(kana)); pitch_num = parseInt(pitch_num); switch (true) { case pitch_type == "atamadaka" || pitch_num === 1: return ( `<span class="ajt__HL">${moras[0]}</span>` + `<span class="ajt__L">${moras.slice(1).join("")}</span>` + `<span class="ajt__pitch_number_tag">1</span>` ); break; case pitch_type == "heiban" || pitch_num === 0: return ( `<span class="ajt__LH">${moras[0]}</span>` + `<span class="ajt__H">${moras.slice(1).join("")}</span>` + `<span class="ajt__pitch_number_tag">0</span>` ); break; case pitch_type == "odaka" || pitch_num === moras.length: return ( `<span class="ajt__LH">${moras[0]}</span>` + `<span class="ajt__HL">${moras.slice(1).join("")}</span>` + `<span class="ajt__pitch_number_tag">${moras.length}</span>` ); break; case pitch_type == "nakadaka" || pitch_type == "kifuku": return ( `<span class="ajt__LH">${moras[0]}</span>` + `<span class="ajt__HL">${moras.slice(1, pitch_num).join("")}</span>` + `<span class="ajt__L">${moras.slice(pitch_num).join("")}</span>` + `<span class="ajt__pitch_number_tag">${pitch_num}</span>` ); break; default: return ( `<span>Error: ${kana} (${pitch_type})</span>` + `<span class="ajt__pitch_number_tag">${pitch_num}</span>` ); break; } return ( `<span>Fatal error: ${kana} (${pitch_type})</span>` + `<span class="ajt__pitch_number_tag">${pitch_num}</span>` ); } function ajt__format_new_ruby(kanji, readings) { if (readings.length > 1) { return `<ruby>${ajt__format_new_ruby(kanji, readings.slice(0, -1))}</ruby><rt>${readings.slice(-1)}</rt>`; } else { return `${kanji}<rt>${readings.join("")}</rt>`; } } function ajt__zip(array1, array2) { let zipped = []; const size = Math.min(array1.length, array2.length); for (let i = 0; i < size; i++) { zipped.push([array1[i], array2[i]]); } return zipped; } function ajt__make_accent_list_item(kana_reading, pitch_accent) { const list_item = document.createElement("li"); for (const [reading_part, pitch_part] of ajt__zip(kana_reading.split("・"), pitch_accent.split(","))) { const [pitch_type, pitch_num] = pitch_part.split("-"); const pattern = ajt__make_pattern(reading_part, pitch_type, pitch_num); list_item.insertAdjacentHTML("beforeend", `<span class="ajt__downstep_${pitch_type}">${pattern}</span>`); } return list_item; } function ajt__make_accents_list(ajt_span) { const accents = document.createElement("ul"); for (const accent_group of ajt_span.getAttribute("pitch").split(" ")) { accents.appendChild(ajt__make_accent_list_item(...accent_group.split(":"))); } return accents; } function ajt__find_word_info_title(ajt_span) { const headword = ajt_span.getAttribute("headword") || info_title; const pos_ja = parts_of_speech.get(ajt_span.getAttribute("part_of_speech") || "unknown"); if (!pos_ja || pos_ja == "unknown") { return headword; } return `${headword}・${pos_ja}`; } function ajt__make_popup_div(headword_info, content) { const frame_top = document.createElement("div"); frame_top.classList.add("ajt__frame_title"); frame_top.innerText = `${headword_info}`; const frame_bottom = document.createElement("div"); frame_bottom.classList.add("ajt__frame_content"); frame_bottom.appendChild(content); const popup = document.createElement("div"); popup.classList.add("ajt__info_popup"); popup.appendChild(frame_top); popup.appendChild(frame_bottom); return popup; } function ajt__find_word_info_popup(word_span) { return word_span.querySelector(".ajt__info_popup"); } function ajt__find_popup_x_corners(popup_div) { const elem_rect = popup_div.getBoundingClientRect(); const right_corner_x = elem_rect.x + elem_rect.width; return { x_start: elem_rect.x, x_end: right_corner_x, shifted_x_start: elem_rect.x + elem_rect.width / 2, shifted_x_end: right_corner_x + elem_rect.width / 2, }; } function ajt__word_info_on_mouse_enter(word_span) { const popup_div = ajt__find_word_info_popup(word_span); if (popup_div) { ajt__word_info_on_mouse_leave(word_span); const x_pos = ajt__find_popup_x_corners(popup_div); if (x_pos.x_start < 0) { popup_div.classList.add("ajt__left-corner"); popup_div.style.setProperty("--shift-x", `${Math.ceil(-x_pos.x_start)}px`); } else if (x_pos.shifted_x_end < window.innerWidth) { popup_div.classList.add("ajt__in-middle"); } } } function ajt__word_info_on_mouse_leave(word_span) { const popup_div = ajt__find_word_info_popup(word_span); if (popup_div) { popup_div.classList.remove("ajt__left-corner", "ajt__in-middle"); } } function ajt__adjust_popup_position_on_mouse_enter(word_info_span) { word_info_span.addEventListener("mouseenter", (event) => ajt__word_info_on_mouse_enter(event.currentTarget)); word_info_span.addEventListener("mouseleave", (event) => ajt__word_info_on_mouse_leave(event.currentTarget)); } function ajt__format_readings_as_list(readings) { const readings_items = readings.map((reading) => `<li>${reading}</li>`).join(""); const list_elem = document.createElement("ol"); list_elem.classList.add("ajt__readings_list"); list_elem.insertAdjacentHTML("beforeend", readings_items); return list_elem; } function ajt__fixup_br(element) { element.querySelectorAll("br").forEach((element) => { element.insertAdjacentText("afterend", " "); element.remove(); }); return element; } function ajt__find_kanji_readings(ruby_tag) { const separators = /[\n\s;,.、・。]+/iu; const kanji = (ruby_tag.querySelector("rb") || ruby_tag.firstChild).textContent.trim(); const readings = ajt__fixup_br(ruby_tag.querySelector("rt")) .textContent.split(separators) .map((str) => str.trim()) .filter((str) => str.length); return { kanji: kanji, readings: readings }; } function ajt__reformat_multi_furigana() { const max_inline = 2; document.querySelectorAll("ruby:not(ruby ruby):not(.ajt__furigana_list ruby)").forEach((ruby) => { try { const { kanji, readings } = ajt__find_kanji_readings(ruby); if (readings.length > 1) { ruby.innerHTML = ajt__format_new_ruby(kanji, readings.slice(0, max_inline)); } if (readings.length > max_inline && !ruby.matches(".ajt__word_info ruby")) { const content_ul = ajt__format_readings_as_list(readings); const popup = ajt__make_popup_div(info_title, content_ul); const wrapper = document.createElement("span"); ruby.replaceWith(wrapper); wrapper.appendChild(ruby); wrapper.appendChild(popup); wrapper.classList.add("ajt__furigana_list"); ajt__adjust_popup_position_on_mouse_enter(wrapper); } } catch (error) { console.error(error); } }); } function ajt__create_popups() { for (const [idx, span] of document.querySelectorAll(".ajt__word_info").entries()) { if (span.matches(".jpsentence .background *")) { continue; } if (ajt__find_word_info_popup(span)) { continue; } try { const info_title = ajt__find_word_info_title(span); const content_ul = ajt__make_accents_list(span); const popup = ajt__make_popup_div(info_title, content_ul); popup.setAttribute("ajt__popup_idx", idx); span.setAttribute("ajt__popup_idx", idx); span.appendChild(popup); ajt__adjust_popup_position_on_mouse_enter(span); } catch (error) { console.error(error); } } } function ajt__main() { ajt__create_popups(); ajt__reformat_multi_furigana(); } if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", ajt__main); } else { ajt__main(); } })();
+</script>

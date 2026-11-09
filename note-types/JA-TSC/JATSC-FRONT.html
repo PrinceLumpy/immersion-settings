@@ -1,0 +1,441 @@
+<!--
+mpvacious cards, version 20.0
+Wed Apr 30 11:17:13 AM UTC 2025
+-->
+
+<div class="wrap">
+    <!-- <header>
+        {{#Focus}}
+        <div class="tags">{{Focus}}</div>
+        {{/Focus}}
+        {{#Tags}}
+        <div class="tags">{{Tags}}</div>
+        {{/Tags}}
+    </header> -->
+
+    <!-- Used to print JS-related errors to the user. -->
+    <div id="error_report">
+        <pre class="error_msg"></pre>
+    </div>
+
+    <!-- Front side. This tag is hidden on the back. -->
+    <div class="tsc__front_side">
+        <div class="sent-center" id="tsc" visible="true">
+            <div class="jpsentence" lang="ja">
+                {{edit:furigana:SentKanji}}
+                <!-- If SentKanji is empty, show SentFurigana with furigana hidden. -->
+                {{^SentKanji}}
+                <div class="nokana">{{edit:kanji:SentFurigana}}</div>
+                {{/SentKanji}}
+            </div>
+        </div>
+
+        <div class="sent-center" id="jp1k-tsc" visible="false">
+            <!-- JP1K mode is active only if note has been tagged as jp1k. -->
+            <div class="jpsentence" lang="ja">{{furigana:SentFurigana}}</div>
+            <button type="button" class="toggle_furigana_button" title="Press P to toggle kanji readings.">
+                Toggle Readings
+            </button>
+        </div>
+    </div>
+
+    <!-- Images (can be shown on both the front side and the back side).
+         If a card has the "imageonfront" tag set, show images on the front side. -->
+    {{#Image}}
+    <details class="images-details">
+        <summary>Image</summary>
+        <div class="images">{{Image}}</div>
+    </details>
+    {{/Image}}
+
+    <!-- Back side. This tag is hidden on the front. -->
+    <div class="tsc__back_side">
+        <div class="sent-center">
+            <div class="jpsentence" lang="ja">
+                <div class="background">
+                    <!-- Only RT tags are drawn on the background. -->
+                    {{furigana:SentFurigana}}
+                    <!-- If SentFurigana is empty, show SentKanji. -->
+                    {{^SentFurigana}}{{furigana:SentKanji}}{{/SentFurigana}}
+                </div>
+                <div class="overlay">
+                    {{edit:furigana:SentFurigana}}
+                    <!-- If SentFurigana is empty, show SentKanji. -->
+                    {{^SentFurigana}}{{edit:furigana:SentKanji}}{{/SentFurigana}}
+                </div>
+            </div>
+            {{#SentEng}}
+            <div class="ensentence" lang="en">{{hint:SentEng}}</div>
+            {{/SentEng}}
+        </div>
+
+        <!-- Definitions -->
+        {{#VocabDef}}
+        <section class="headword_section">
+            <div class="vocab" id="tsc__headword_section">
+                <!-- Using JS, insert vocabulary audio and sentence audio here. -->
+                <div class="reading" id="pitchpattern" lang="ja">
+                    {{VocabPitchPattern}}
+                    <!-- If VocabPitchPattern is empty, show VocabFurigana. -->
+                    {{^VocabPitchPattern}}{{text:kana:VocabFurigana}}{{/VocabPitchPattern}}
+                </div>
+                {{#VocabPitchNum}}
+                <span class="tags" id="pitchnum">{{text:VocabPitchNum}}</span>
+                {{/VocabPitchNum}}
+                <!-- Word in kanji -->
+                {{#VocabKanji}}
+                <div class="target_word" lang="ja">{{text:kanji:VocabKanji}}</div>
+                {{/VocabKanji}}
+            </div>
+            <div class="definitions">
+                <span id="definitions-normal" style="display:inline;">
+                    {{edit:furigana:VocabDef}}
+                </span>
+                <span id="definitions-hint" style="display:none;">
+                    {{edit:hint:furigana:VocabDef}}
+                </span>
+            </div>
+
+        </section>
+        {{/VocabDef}}
+
+        <!-- Fallback location for audio files -->
+        <div id="tsc__backside_audio"></div>
+
+        <!-- Notes -->
+        {{#Notes}}
+        <details class="notes">
+            <summary>Notes</summary>
+            <div>{{furigana:Notes}}</div>
+        </details>
+        {{/Notes}}
+
+        <!-- Place images here -->
+        <div id="tsc__backside_images"></div>
+
+        <hr>
+
+        <footer>
+            <!-- Sentence links -->
+            {{#SentKanji}}
+            <a
+                href="https://simplytranslate.org/?engine=google&text={{text:kanji:SentKanji}}&sl=ja&tl=en"
+                title="Translate with SimplyTranslate"
+                >Translate</a
+            >
+            <a href="https://jisho.org/search?keyword={{text:kanji:SentKanji}}" title="Sentence on Jisho">Jisho</a>
+            <a
+                href="https://duckduckgo.com/?q={{text:kanji:SentKanji}}&iax=images&ia=images&kp=-2&kl=jp-jp"
+                title="Search images"
+                >Images</a
+            >
+            {{/SentKanji}}
+            <!-- Vocab links -->
+            {{#VocabKanji}}
+            <a href="http://www.weblio.jp/content/{{text:VocabKanji}}" title="Vocab on Weblio">Weblio</a>
+            <a href="https://wadoku.de/search/?q={{text:VocabKanji}}" title="Vocab on Wadoku">Wadoku</a>
+            {{/VocabKanji}}
+        </footer>
+    </div>
+</div>
+<!-- /wrap -->
+
+<div style="display: none">
+    <div id="vocab_kanji_hidden">{{VocabKanji}}</div>
+    <div id="pitchnum_hidden">{{VocabPitchNum}}</div>
+    <div id="kanaword_hidden">{{kana:VocabFurigana}}</div>
+</div>
+
+<script>
+    (function () {
+        "use strict";
+        const IMG_ON_FRONT_TAG = "imageonfront";
+        const HINT_DEFINITION_TAG = "hintdefinition";
+        const HIDDEN_TAGS = new Set([HINT_DEFINITION_TAG, IMG_ON_FRONT_TAG, "tolearn", "marked"]);
+        const JP1K_TAG = "jp1k";
+        const IS_JP1K_MODE = `{{Tags}}`.toLowerCase().split(" ").includes(JP1K_TAG);
+
+        function is_back_revealed() {
+            return Boolean(document.querySelector(".tsc__answer_revealed"));
+        }
+
+        function move_play_buttons_inside_headword() {
+            /*
+            Move play buttons inside the headword section.
+            Each play button looks like this:
+            <a class="replay-button"><svg><circle>...</circle>...</svg></a>
+            */
+            const headword_section =
+                document.querySelector("#tsc__headword_section") || document.querySelector("#tsc__backside_audio");
+            if (headword_section) {
+                headword_section.prepend(document.querySelector("#sent-audio"));
+                headword_section.prepend(document.querySelector("#vocab-audio"));
+            }
+        }
+
+function color_target_word() {
+    /* Color bold words in the back sentence by pitch accent type. */
+    const num_text = document.getElementById("pitchnum_hidden")?.textContent || "";
+    const kana = (document.getElementById("kanaword_hidden")?.textContent || "").replace(/[^\u3040-\u30FF]/g, "");
+    const is_kifuku = `{{Tags}}`.toLowerCase().split(" ").includes("kifuku");
+
+    // mora count: small ゃゅょぁぃぅぇぉ (and katakana) join the previous kana
+    const moras = kana.replace(/[ゃゅょぁぃぅぇぉャュョァィゥェォ]/g, "").length;
+
+    let color = "#5f5f5f"; // unknown
+    const m = num_text.match(/\d+/);
+    if (m) {
+        const n = parseInt(m[0], 10);
+        if (is_kifuku) color = "purple";
+        else if (n === 0) color = "#3366CC";                       // heiban
+        else if (n === 1) color = "#ea3131";                       // atamadaka
+        else if (moras && n === moras) color = "#4caf50";            // odaka
+        else if (moras && n > 1 && n < moras) color = "#eb8500";   // nakadaka
+    }
+
+    for (const el of document.querySelectorAll(".tsc__back_side .jpsentence b, .tsc__back_side .jpsentence strong")) {
+        el.style.color = color;
+    }
+}
+
+        function exclude_tags(all_tags, excluded_tags) {
+            try {
+                /*
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference
+                */
+                return all_tags.difference(excluded_tags);
+            } catch (e) {
+                /*
+                Some users have reported that the difference method does not work on Anki on Windows.
+                */
+                console.log("Set.prototype.difference() is not available.");
+                return new Set([...all_tags].filter((elem) => !excluded_tags.has(elem)));
+            }
+        }
+
+        function separate_tags_list() {
+            /* Splits tags into separate divs */
+            const header = document.querySelector("header");
+            if (!header) {
+                return;
+            }
+            const tags_split = new Set(`{{Focus}} {{Tags}}`.split(" ").filter((word) => word.length > 0));
+
+            header.innerHTML = "";
+
+            for (const tag of exclude_tags(tags_split, HIDDEN_TAGS)) {
+                const tag_elem = document.createElement("div");
+                tag_elem.className = "tags";
+                tag_elem.innerText = tag;
+                header.appendChild(tag_elem);
+            }
+        }
+
+        function is_mobile_anki_app() {
+            /* Return true if running on AnkiDroid. */
+            return document.getElementsByTagName("html")[0].classList.contains("mobile");
+        }
+
+        function move_images_under_notes() {
+            /* When the back side is visible, Images should be placed after (under) notes. */
+            const images_anchor = document.querySelector("#tsc__backside_images");
+            if (images_anchor) {
+                for (const img_container of document.querySelectorAll(".images-details")) {
+                    images_anchor.after(img_container);
+                }
+            }
+        }
+
+        function toggle_visible_images_on_front() {
+            /* If a card has the "imageonfront" tag set, show images on the front side. */
+            const images_on_front_enabled = `{{Tags}}`.split(" ").includes(IMG_ON_FRONT_TAG);
+            console.log(`Images on front are ${images_on_front_enabled ? "enabled" : "disabled"}.`);
+            for (const img_container of document.querySelectorAll(".images-details")) {
+                img_container.setAttribute("images_on_front", images_on_front_enabled);
+            }
+        }
+
+        function hint_definition_from_tags() {
+            /* If a card has the "hintDefinition" tag set, make the definition click to reveal. */
+            const hint_definition_enabled = `{{Tags}}`.toLowerCase().split(" ").includes(HINT_DEFINITION_TAG);
+            console.log(`Hint definition is ${hint_definition_enabled ? "enabled" : "disabled"}.`);
+
+            const def_normal = document.getElementById("definitions-normal");
+            const def_hidden = document.getElementById("definitions-hint");
+
+            if (!def_normal || !def_hidden) {
+                return;
+            }
+
+            if (hint_definition_enabled) {
+                def_normal.style.display = "none";
+                def_hidden.style.display = "inline";
+
+                /* Change the text on the button that reveals the definition. */
+                const elem = document.querySelector("div.definitions #definitions-hint a.hint");
+                if (elem) {
+                    elem.innerText = "Reveal definition";
+                    elem.setAttribute("title", "Press X to reveal the definition.");
+                }
+            } else {
+                def_normal.style.display = "inline";
+                def_hidden.style.display = "none";
+            }
+        }
+
+        function hide_images_details_on_mobile() {
+            /* Hide images on mobile devices. */
+            const is_mobile = is_mobile_anki_app();
+            for (const details_element of document.querySelectorAll(".images-details")) {
+                details_element.toggleAttribute("open", !is_mobile);
+            }
+        }
+
+        function toggle_jp1k_mode() {
+            /*
+            If the user has added the "JP1K" tag to the note,
+            show furigana on the front when hovered over.
+            */
+            const tsc_element = document.querySelector("#tsc");
+            const jp1k_element = document.querySelector("#jp1k-tsc");
+            jp1k_element.setAttribute("visible", IS_JP1K_MODE);
+            tsc_element.setAttribute("visible", !IS_JP1K_MODE);
+        }
+
+        function toggle_jp1k_furigana() {
+            /* Flip visibilty of all RT tags. */
+            if (IS_JP1K_MODE) {
+                for (const element of document.querySelectorAll("#jp1k-tsc ruby rt")) {
+                    element.style.visibility = !element.style.visibility ? "visible" : "";
+                }
+            }
+        }
+
+        function click_all_hints() {
+            /* Reveal all hints by clicking on all hint elements.
+               The "hint" tag is set by Anki when {{hint:SentEng}} syntax is used. */
+            for (const elem of document.querySelectorAll("a.hint")) {
+                elem.click();
+            }
+        }
+
+        function listen_to_key(key_code, callback) {
+            /* Press key_code to call callback */
+            document.addEventListener(
+                "keydown",
+                (event) => {
+                    if (event.code === key_code && typeof callback === "function") {
+                        callback();
+                    }
+                },
+                true
+            );
+        }
+
+        function tweak_reveal_english_sentence_button() {
+            /* Change the text on the button that reveals the English translation:
+               <div class="ensentence" lang="en">{{hint:SentEng}}</div> */
+            const elem = document.querySelector("div.ensentence > a.hint");
+            if (elem) {
+                elem.innerText = "Reveal English translation";
+                elem.setAttribute("title", "Press X to reveal English translation.");
+            }
+        }
+
+        function remove_audio_if_marked_X() {
+            /* Insert x or × inside the VocabAudio field to hide it.
+               This mark is used to prevent AJT Japanese from attempting to fill the field
+               when the audio suggested by AJT Japanese is incorrect. */
+            const pr = document.getElementById("vocab-audio");
+            if (pr && pr.innerText.match(/^[x×]/i)) {
+                pr.style.display = "none";
+            }
+        }
+
+        function remove_pitch_brackets() {
+            /* VocabPitchNum has id "pitchnum"
+               Sometimes the pitch number is added in brackets (by Rikaitan).
+               Remove the brackets. */
+            const tags = document.getElementById("pitchnum");
+            if (tags !== null) {
+                tags.innerHTML = tags.innerHTML.replace(/[\[\]]/g, "");
+            }
+        }
+
+        function setup_reveal_furigana_button_listener() {
+            /* <button type="button" class="toggle_furigana_button">...</button> */
+            for (const button of document.querySelectorAll(".toggle_furigana_button")) {
+                button.addEventListener("click", (event) => {
+                    toggle_jp1k_furigana();
+                });
+            }
+        }
+
+        function hide_duplicate_pitch_number() {
+            /* Pitch graphs added by AJT Japanese may already include pitch numbers.
+               But this template also shows the pitch number if it was added to the VocabPitchNum field. */
+            const template_pitch_num = document.getElementById("pitchnum"); // Pitch number from VocabPitchNum
+            const addon_pitch_num = document.querySelector(".pitch_number"); // This tag is used by AJT Japanese.
+            if (template_pitch_num && addon_pitch_num) {
+                // If both are present, hide one.
+                template_pitch_num.remove();
+            }
+        }
+
+        function initialize() {
+            /* Entry point. */
+            console.log("Card script initializing...");
+            const isBack = is_back_revealed();
+
+            /* Functions that run on both front and back. */
+            separate_tags_list();
+            hide_images_details_on_mobile();
+            listen_to_key("KeyX", click_all_hints); // Press "x" to reveal all hints.
+
+            if (isBack) {
+                console.log("Initializing the back side...");
+                move_play_buttons_inside_headword();
+                move_images_under_notes();
+                tweak_reveal_english_sentence_button();
+                remove_audio_if_marked_X();
+                remove_pitch_brackets();
+                hide_duplicate_pitch_number();
+                hint_definition_from_tags();
+								 color_target_word();
+            } else {
+                console.log("Initializing the front side...");
+                toggle_visible_images_on_front();
+                toggle_jp1k_mode();
+                /* When in the JP1K mode, press "p" to reveal furigana for all words. */
+                listen_to_key("KeyP", toggle_jp1k_furigana);
+                setup_reveal_furigana_button_listener();
+            }
+            console.log("Card script initialization complete.");
+        }
+
+        function error_to_html(error_text) {
+            const err_div_element = document.getElementById("error_report");
+            const err_msg_element = err_div_element.querySelector(".error_msg");
+            err_div_element.setAttribute("error_occurred", true);
+            err_msg_element.innerText = error_text;
+        }
+
+        function initialize_and_catch_errors() {
+            try {
+                initialize();
+            } catch (ex) {
+                console.error("AJT Error", ex.name, ex.message);
+                error_to_html(ex.stack);
+                throw ex;
+            }
+        }
+
+        /* Wait for the DOM to be ready */
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initialize_and_catch_errors);
+        } else {
+            /* DOM is already ready */
+            initialize_and_catch_errors();
+        }
+    })();
+</script>

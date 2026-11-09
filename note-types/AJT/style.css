@@ -1,0 +1,622 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "KanjiStrokeOrders";
+    src: local("KanjiStrokeOrders"), url("_kso.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Local Mincho";
+    src: local("Yu Mincho"), local("游明朝"), local("Noto Serif CJK JP"), local("IPAexMincho"), local("IPAex明朝"),
+        local("IPAMincho"), local("IPA明朝"), local("IPAPMincho"), local("IPA P明朝"), local("TakaoExMincho"),
+        local("TakaoEx明朝"), url("_yumin.woff2") format("woff2");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Local Mincho";
+    src: local("Noto Serif CJK JP SemiBold"), local("Noto Serif CJK JP DemiLight"), local("Yu Mincho Demibold"),
+        local("游明朝 Demibold"), url("_yumindb.woff2") format("woff2");
+    font-weight: 600;
+}
+
+/* Color schemes
+   Anki applies .card and .nightMode classes to <body>. */
+
+.card {
+    --color-side-bars: #e5d7c9;
+    --color-furigana: #000000;
+    --color-background: #fffaf0;
+    --color-text: #2a1b0a;
+    --color-background-wrap: #fffaf0;
+    --color-border-wrap: #c9bcbc;
+    --color-link: #532f2f;
+    --color-link-hover: #722a2a;
+    --color-headword: #ad1b82;
+    --color-hr: #ddd5c8;
+    /* Tags (pitch, note tags) */
+    --color-text-tags: #fffaf0;
+    --color-background-tags: #333;
+    /* Hints (the English sentence is hidden under a hint) */
+    --color-text-hint: #555;
+    --color-hint-border: hsl(0deg 80% 50% / 15%);
+    --color-text-hint-hover: hsl(20deg 100% 20% / 80%);
+    --color-background-hint-hover: hsl(0deg 80% 50% / 3%);
+    /* Summary (labels for "notes" and "image")  */
+    --color-text-summary: hsl(0 80% 10% / 70%);
+    /* Audio replay button */
+    --color-play-symbol: #fffaf0;
+    --color-play-circle: var(--color-background-tags);
+    --color-play-circle-hover: #6b672f;
+}
+
+.card.nightMode {
+    --color-side-bars: #272413;
+    --color-furigana: #ffffff;
+    --color-background: #2f2f31;
+    --color-text: #ffffff;
+    --color-background-wrap: #221f15;
+    --color-border-wrap: #6d6868;
+    --color-link: #c7493a;
+    --color-link-hover: #a33327;
+    --color-headword: gray;
+    /* Tags (pitch numbers, note tags) */
+    --color-text-tags: #2f2f31;
+    --color-background-tags: #ffffff;
+    /* Hints (the English sentence is hidden under a hint) */
+    --color-text-hint: #fff;
+    --color-hint-border: #fff;
+    --color-text-hint-hover: gray;
+    --color-background-hint-hover: rgba(0, 0, 0, 0.2);
+    /* Summary (labels for "notes" and "image")  */
+    --color-text-summary: hsl(0 80% 100% / 70%);
+    /* Audio replay button */
+    --color-play-symbol: #2f2f31;
+    --color-play-circle: #ffffff;
+    --color-play-circle-hover: rgba(204, 223, 173, 0.8);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+b,
+strong {
+    font-weight: 600;
+}
+
+.jpsentence b,
+.jpsentence strong {
+    color: var(--color-headword, pink);
+}
+
+.card {
+    background-color: var(--color-background, pink);
+    color: var(--color-text, pink);
+    font-size: 24px;
+    text-align: left;
+    line-height: 1.4;
+    margin: 0 auto;
+}
+
+.card,
+ruby rt {
+    font-family: "Noto Serif", "Noto Serif CJK JP", "IPAexMincho", "Yu Mincho", "Local Mincho", "Liberation Serif",
+        "Times New Roman", Times, Georgia, Serif;
+}
+
+.card1 {
+    color: inherit;
+}
+
+.card2 .jpsentence ruby rt {
+    opacity: 0;
+}
+
+.card2 .jpsentence:hover ruby rt {
+    opacity: 1;
+}
+
+@media screen and (min-width: 820px) {
+    /* Large screens. */
+    .card,
+    .card.nightMode {
+        /* .card.nightMode fixes Anki's default CSS */
+        background-color: var(--color-side-bars, yellow);
+        display: flex;
+        justify-content: center;
+    }
+
+    .wrap {
+        width: 800px;
+        padding: 0 5px 0;
+        background-color: var(--color-background-wrap, pink);
+        border-left: 1px solid var(--color-border-wrap, pink);
+        border-right: 1px solid var(--color-border-wrap, pink);
+        min-height: 100vh;
+    }
+}
+
+/* HR */
+
+hr {
+    margin: 8px 0;
+    clear: both;
+    border: 0;
+    border-top: 2px solid var(--color-hr, red);
+}
+
+/* links */
+
+a {
+    color: var(--color-link, pink);
+}
+
+a:hover {
+    color: var(--color-link-hover, pink);
+}
+
+a.hint {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+/* Hide furigana on front
+   <div class="nokana">{{edit:kanji:SentFurigana}}</div> */
+.nokana ruby rt {
+    opacity: 0;
+    font-size: 0;
+    display: none;
+}
+
+.notext b,
+.notext strong {
+    background-color: black;
+    color: transparent;
+}
+
+/* Top */
+header {
+    display: flex;
+    clear: both;
+    margin: 0 0 8px;
+}
+
+header .tags {
+    border-radius: 0px 0px 3px 3px;
+}
+
+header > div:not(:last-child) {
+    margin-right: 3px;
+}
+
+/* Space between elements */
+
+.sent-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+.sent-center:where(#tsc, #jp1k-tsc):not([visible="true"]) {
+    /* toggles between JP1K mode and regular TSC mode. */
+    display: none;
+}
+
+/* Japanese sentence */
+
+.jpsentence {
+    font-size: 35px;
+}
+
+.jpsentence b {
+    display: inline-block;
+}
+
+/* Hide the front side when the back is shown. */
+
+body:has(.tsc__answer_revealed) .tsc__front_side {
+    display: none;
+}
+
+/* Hide the back side until the user reveals it. */
+
+body:not(:has(.tsc__answer_revealed)) .tsc__back_side {
+    display: none;
+}
+
+/* Images on front, toggled by JavaScript if "imageonfront" tag is set. */
+
+body:not(:has(.tsc__answer_revealed)) .images-details:not([images_on_front="true"]) {
+    display: none;
+}
+
+/* English */
+
+div.ensentence > a.hint {
+    color: var(--color-text-hint, pink);
+    font-size: 14px;
+    display: block;
+    border: 1px solid var(--color-hint-border, pink);
+    border-radius: 2.2px;
+    padding: 2px 10px;
+    margin: 0.4rem 0;
+}
+
+div.ensentence > a.hint:hover {
+    color: var(--color-text-hint-hover, pink);
+    background-color: var(--color-background-hint-hover, pink);
+}
+
+/* Definition */
+
+.definitions,
+.notes {
+    font-weight: 300;
+}
+
+/* Tags */
+
+.pitch_number,
+.tags {
+    font-family: "Noto Sans", "Droid Sans", "DejaVu Sans", "Liberation Sans", Roboto, Cantarell, "Segoe UI", Arial,
+        Meiryo, Oxygen, Ubuntu, "Helvetica Neue", Helvetica, "Noto Color Emoji", "Noto Sans CJK JP", IPAGothic,
+        "Yu Gothic", Sans, sans-serif;
+    text-align: center;
+    display: inline-block;
+    text-transform: lowercase;
+    background-color: var(--color-background-tags, pink);
+    color: var(--color-text-tags, pink);
+    font-weight: bold;
+    padding: 1px 3px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 14px;
+    user-select: none;
+}
+
+/* AnkiDroid replay button = a.replay-button > span > svg
+   https://github.com/ankidroid/Anki-Android/blob/1994d46b7627bf82b89b054f2b7a5d8f60c33435/AnkiDroid/src/main/java/com/ichi2/libanki/Sound.kt#L130
+   PC replay button = a.replay-button > svg */
+
+#vocab-audio,
+#sent-audio {
+    /* Fix for flexbox alignment */
+    display: contents;
+}
+
+a.replay-button {
+    /* Draw a circle around the play symbol */
+    --replay-button-scale: 0.7rem;
+
+    display: inline-grid;
+    place-items: center;
+    margin: 0;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--color-play-circle, pink);
+    border-radius: 100vmax;
+    width: calc(2.25 * var(--replay-button-scale));
+    aspect-ratio: 1 / 1;
+}
+
+a.replay-button:hover,
+a.replay-button:focus-visible {
+    background-color: var(--color-play-circle-hover, yellow);
+}
+
+a.replay-button > * {
+    /* Delete the svg icon Anki places inside the link by default. */
+    display: none;
+}
+
+a.replay-button::after {
+    /* The play symbol ▶️ */
+    user-select: none;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-left: calc(0.2 * var(--replay-button-scale));
+    border-top: calc(0.5 * var(--replay-button-scale)) solid transparent;
+    border-bottom: calc(0.5 * var(--replay-button-scale)) solid transparent;
+    border-left: calc(0.8 * var(--replay-button-scale)) solid var(--color-play-symbol, pink);
+}
+
+/* Footer and links */
+
+footer {
+    font-size: 16px;
+    word-break: keep-all;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer > a:not(:last-child)::after {
+    content: "·";
+    color: brown;
+    display: inline-block;
+    padding: 0 2px;
+}
+
+/* Vocab */
+
+.vocab {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 2px;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.vocab > .reading,
+.vocab > .target_word {
+    word-break: keep-all;
+}
+
+.vocab > .target_word::before {
+    content: "【";
+}
+
+.vocab > .target_word::after {
+    content: "】";
+}
+
+.vocab div {
+    display: inline-block;
+}
+
+.vocab br {
+    display: none;
+}
+
+.vocab .pitch_number,
+.vocab .tags {
+    align-self: flex-start;
+    vertical-align: top;
+}
+
+.notes .tags {
+    vertical-align: bottom;
+}
+
+/* Images */
+
+.images {
+    margin: 10px 0;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    align-content: start;
+    justify-content: space-around;
+    gap: 5px;
+    grid-auto-columns: minmax(100px, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.images br,
+.images > :not(img) {
+    display: none;
+    visibility: hidden;
+}
+.images div {
+    /* some unfortunate apps insert divs in cards */
+    display: contents;
+    visibility: visible;
+}
+
+.images img {
+    display: block;
+    border-radius: 4px;
+    filter: sepia(33%);
+    max-height: 95vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+.images img:only-of-type {
+    width: auto;
+}
+
+/* Production cards */
+
+.production :is(b, strong):not([visible]) {
+    visibility: hidden;
+}
+
+.production :is(b, strong)::before {
+    content: "【";
+}
+
+.production :is(b, strong)::after {
+    content: "】";
+}
+
+.strokeorder {
+    text-align: center;
+    font-size: 150px;
+    font-family: KanjiStrokeOrders;
+}
+
+/* Production cards: Hide the back side until it's revealed. */
+
+body:not(:has(.tsc__answer_revealed)) .production__back_side {
+    display: none;
+}
+
+/* Fix for Rikaitan defs */
+
+.headword_section ul,
+.headword_section ol {
+    list-style-type: none;
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Fix for Rikaitan pitch accents */
+
+.vocab ol > li {
+    display: inline;
+}
+
+.vocab ol > li:after {
+    content: "・";
+}
+
+.vocab ol > li:last-child:after {
+    content: "";
+}
+
+/* Furigana style */
+
+rt {
+    color: var(--color-furigana, black);
+}
+
+/* Fix: Don't select furigana */
+
+ruby rt {
+    user-select: none;
+}
+
+.jpsentence {
+    position: relative;
+}
+
+.jpsentence > .overlay {
+    position: absolute;
+    /* Some versions of Anki don't understand inset. */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.jpsentence > .background,
+.jpsentence > .overlay ruby rt {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.jpsentence > .background ruby rt {
+    visibility: visible;
+}
+
+/* Outline editable fields */
+
+div[contenteditable="true"] {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 3px;
+    box-shadow: 10px 5px 5px gray;
+}
+
+/* Details */
+
+details,
+.headword_section {
+    background-color: hsl(0deg 80% 50% / 3%);
+    border-radius: 4px;
+    padding: 3px;
+    margin-block-end: 0.4rem;
+    border: 1px solid hsl(0deg 80% 50% / 15%);
+}
+
+summary {
+    font-size: 18px;
+    color: var(--color-text-summary, pink);
+    font-weight: 500;
+    user-select: none;
+}
+
+/* Toggle furigana button - JP1K mode */
+
+.toggle_furigana_button {
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 4px;
+    border-radius: 4px;
+    background-color: var(--color-background-tags, yellow);
+    color: var(--color-text-tags, red);
+    border: 0;
+    outline: 0;
+    margin: 0 0 6px;
+}
+.toggle_furigana_button:hover,
+.toggle_furigana_button:active {
+    background-color: var(--color-play-circle-hover, #4f4f4f);
+    background: var(--color-play-circle-hover, #4f4f4f);
+    border: none;
+}
+
+/* Hidden furigana on front - JP1K mode */
+
+#jp1k-tsc ruby rt {
+    visibility: hidden;
+}
+#jp1k-tsc ruby:hover rt {
+    visibility: visible;
+}
+
+/* Styles for SVG pitch graphs */
+
+.reading:has(.ajt__pitch_svg) {
+    font-size: 0px; /* hide reading separators */
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+.reading:not(:hover, :active, :focus) .ajt__pitch_svg:nth-child(n + 3) {
+    height: 0px;
+    width: 0px;
+}
+.reading:not(:hover, :active, :focus):has(.ajt__pitch_svg:nth-child(3))::after {
+    content: "\2807";
+    display: block;
+    font-size: 32px;
+    margin-top: 8px;
+    color: red;
+    rotate: 90deg;
+}
+
+/* Error reporting. Used to show JS errors.
+   Under normal circumstances, the user should never see this. */
+
+#error_report {
+    border: 2px brown solid;
+    background-color: #ecd4d4;
+    color: #2e0b0b;
+    display: none;
+    font-size: 1rem;
+    padding: 0.4rem;
+    overflow-x: auto;
+}
+
+#error_report[error_occurred="true"] {
+    display: block;
+}
+/* === AJT Japanese CSS BLOCK START === */
+/* AJT Japanese CSS 26.3.30.1 */
+/* DO NOT EDIT! This code will be overwritten by AJT Japanese. */
+[class^="ajt__"], [class^="ajt__"]::before, [class^="ajt__"]::after, [class^="ajt__"] *, [class^="ajt__"] *::before, [class^="ajt__"] *::after { margin: 0; padding: 0; box-sizing: border-box; } .ajt__word_info, .ajt__furigana_list { --acc-color-1: hsl(0, 0%, 65%); --acc-color-2: hsl(205 24% 55% / 30%); --acc-color-3: hsl(32, 62%, 10%); --acc-color-4: hsl(0, 0%, 96%); --acc-color-5: hsl(0, 0%, 0%); --acc-color-6: hsl(0 80% 40% / 20%); --acc-color-7: hsl(0, 0%, 100%); --acc-color-8: hsl(7, 74%, 23%); position: relative; display: inline-block; &::after { content: ""; display: block; position: absolute; bottom: 0%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent var(--acc-color-1) transparent; } &:hover { background-color: var(--acc-color-2); cursor: pointer; } &::after, & .ajt__info_popup { visibility: hidden; z-index: -9999; } &:hover::after, &:hover .ajt__info_popup { visibility: visible; z-index: 9999; } } .ajt__furigana_list { text-decoration: underline; text-decoration-style: dotted; text-decoration-color: var(--acc-color-6); text-decoration-thickness: 2px; text-underline-offset: 3px; } ol.ajt__readings_list { list-style-type: decimal; } .ajt__readings_list li::marker { color: var(--acc-color-8, red); } .ajt__info_popup { --min-popup-width: 240px; --max-popup-width: calc(100vw - 1rem); --max-popup-height: 320px; --text-height: 1.4rem; --border-size: 1px; display: block; color: var(--acc-color-3); cursor: auto; font-weight: normal; background-color: var(--acc-color-4); position: absolute; top: 100%; right: 0%; margin: auto; padding: 0rem; width: max-content; max-width: max(80%, var(--max-popup-width)); min-width: min(var(--max-popup-width), var(--min-popup-width)); max-height: var(--max-popup-height); box-shadow: 2px 2px 8px rgba(0 0 0 / 25%); border: var(--border-size) solid var(--acc-color-1); } .ajt__info_popup.ajt__left-corner { transform: translateX(var(--shift-x, 125px)); } .ajt__info_popup.ajt__in-middle { right: 50%; transform: translateX(50%); } .ajt__frame_title { text-align: center; background-color: rgb(197, 197, 197); font-size: 1rem; user-select: none; height: var(--text-height); line-height: var(--text-height); } .ajt__frame_content { overflow: auto; display: grid; place-items: center; max-height: calc(var(--max-popup-height) - var(--text-height) - var(--border-size) * 2); font-size: 1.5rem; line-height: 1.5; margin: 0; padding: 0.3rem 0; } .ajt__frame_content ul { list-style-type: none; } .ajt__frame_content li + li { margin: 0.3rem 0 0; } .ajt__downstep_heiban { --downstep-color: #3366cc; } .ajt__downstep_atamadaka { --downstep-color: #ff0000; } .ajt__downstep_odaka { --downstep-color: #008000; } .ajt__downstep_nakadaka { --downstep-color: #eb8500; } .ajt__downstep_kifuku { --downstep-color: purple; } .ajt__HL { box-shadow: inset -2px 2px 0 0px var(--downstep-color, currentColor); } .ajt__L { box-shadow: inset 0px -2px 0 0px var(--downstep-color, currentColor); } .ajt__LH { box-shadow: inset -2px -2px 0 0 var(--downstep-color, currentColor); } .ajt__H { box-shadow: inset 0px 2px 0 0px var(--downstep-color, currentColor); } .ajt__pitch_number_tag { padding: 1px 3px; margin: 0 1px; display: inline-block; vertical-align: top; text-transform: lowercase; text-align: center; background-color: var(--downstep-color, #333333); color: var(--acc-color-4, #fffaf0); font-weight: bold; cursor: pointer; border-radius: 3px; font-size: 12px; line-height: 14px; user-select: none; font-family: "Noto Sans", "Droid Sans", "DejaVu Sans", "Liberation Sans", Roboto, Cantarell, "Segoe UI", Arial, Meiryo, Oxygen, Ubuntu, "Helvetica Neue", Helvetica, "Noto Color Emoji", "Noto Sans CJK JP", Sans, sans-serif; }
+/* === AJT Japanese CSS BLOCK END === */
