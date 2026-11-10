@@ -1,10 +1,5 @@
-@font-face {
-  font-family: notoSansSC;
-  src: url("_NotoSansSC-Regular.ttf");
-}
-
 .card {
-  font-family: notoSansSC;
+  font-family: "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
   text-align: center;
 }
 

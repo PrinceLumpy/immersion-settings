@@ -1,8 +1,4 @@
 @charset "UTF-8";
-@font-face {
-    font-family: "Noto Sans JP";
-    src: url('_NotoSansJP-Regular.ttf');
-}
 
 /* Color schemes
    Anki applies .card and .nightMode classes to <body>. */
@@ -90,7 +86,7 @@ strong {
 
 .card,
 ruby rt {
-    font-family: "Noto Sans JP"
+    font-family: "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
 }
 
 .card1 {
