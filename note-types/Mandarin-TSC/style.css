@@ -16,10 +16,10 @@
 }
 
 .sentence b {
-  color: #f0a500;
+  color: #ff6b6b;
   font-weight: 900;
   text-decoration: underline;
-  text-decoration-color: rgba(240, 165, 0, 0.5);
+  text-decoration-color: rgba(255, 107, 107, 0.7);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 6px;
 }
