@@ -41,6 +41,7 @@ rotation. The Python helpers live in `scripts/daily-impd/services/`:
   playlists.
 - `subtitles/subtitle_workflow.py` transcribes a local video with `elevate`,
   translates the transcription into English, and embeds both subtitle tracks.
+  An optional language argument specifies Japanese (`jp`) or Chinese (`zh`).
 - `subtitles/subtitle_padding.py` extends generated subtitle cue timings.
 - `subtitles/subtitle_translate.py` creates an English SRT with the original
   cue timings using Ollama.
@@ -137,11 +138,14 @@ bash "scripts/daily-impd/immersion-daily.sh"
 ```
 
 Each run selects the day's playlist, downloads its first unprocessed video, and
-runs the subtitle service on the local video file. `elevate` detects the spoken
-language automatically.
+runs the subtitle service on the local video file. The selected playlist
+determines whether `elevate` transcribes Japanese or Chinese.
 
-- `elevate` creates a source-language SRT, which is padded by half a second
-  where possible. Its matching `.transcript.json` is deleted.
+- The workflow renames `elevate`'s source SRT to `{videoname}.jp.srt` or
+  `{videoname}.zh.srt`, then pads it by half a second where possible. English
+  subtitles use `{videoname}.en.srt`. Both SRT files are deleted after
+  embedding succeeds. The matching `.transcript.json` is deleted during
+  transcription processing.
 - Ollama translates that transcription into English without requiring a
   specified source language.
 - The source and English tracks are embedded in the video. The result is an
@@ -151,10 +155,13 @@ language automatically.
 - Finally, the script runs `impd rotate`.
 
 You can run the complete subtitle flow directly for any local video file. The
-command needs only the path; `elevate` detects the language:
+second positional argument is optional: use `jp` for Japanese or `zh` for
+Chinese. When omitted, `elevate` detects the source language and the temporary
+source subtitle is named `{videoname}.transcript.srt`.
 
 ```bash
 python3 "scripts/daily-impd/services/subtitles/subtitle_workflow.py" "/path/to/video.mkv"
+python3 "scripts/daily-impd/services/subtitles/subtitle_workflow.py" "/path/to/video.mkv" jp
 ```
 
 The service does not check YouTube or existing subtitle tracks. It always

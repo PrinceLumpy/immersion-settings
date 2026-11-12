@@ -99,8 +99,8 @@ def main():
 
     cues = read_srt(source)
     config = load_config()
-    model = get_value(config, "ollama_model", "qwen2.5:7b")
-    host = get_value(config, "ollama_host", "http://localhost:11434")
+    model = get_value(config, "ollama_model")
+    host = get_value(config, "ollama_host")
     translations = []
     for start in range(0, len(cues), BATCH_SIZE):
         batch = cues[start : start + BATCH_SIZE]

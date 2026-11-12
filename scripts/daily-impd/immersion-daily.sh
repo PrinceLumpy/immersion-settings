@@ -40,8 +40,10 @@ select_todays_playlist() {
 
   if (( 10#$day_of_year % 2 == 0 )); then
     PLAYLIST_ID="$JAPANESE_PLAYLIST_ID"
+    SOURCE_LANGUAGE="jp"
   else
     PLAYLIST_ID="$CHINESE_PLAYLIST_ID"
+    SOURCE_LANGUAGE="zh"
   fi
 }
 
@@ -85,7 +87,8 @@ main() {
 
   IMPD_CONFIG="$CONFIG_FILE" python3 \
     "$SERVICES_DIR/subtitles/subtitle_workflow.py" \
-    "$video_file"
+    "$video_file" \
+    "$SOURCE_LANGUAGE"
 
   # Record only fully processed videos so a failed run retries the same video.
   python3 "$SERVICES_DIR/playlist_history.py" mark \

@@ -16,14 +16,21 @@ def run(command, *, cwd=None):
     subprocess.run(command, cwd=cwd, check=True)
 
 
-def create_source_subtitle(video_file, video_base):
-    run(["elevate", "transcribe", str(video_file)], cwd=video_file.parent)
-    subtitle_file = video_base.with_name(f"{video_base.name}.srt")
-    if not subtitle_file.is_file():
+def create_source_subtitle(video_file, video_base, source_language):
+    command = ["elevate"]
+    if source_language:
+        command.extend(["--language", {"jp": "ja", "zh": "zh"}[source_language]])
+    command.extend(["transcribe", str(video_file)])
+    run(command, cwd=video_file.parent)
+    generated_subtitle = video_base.with_name(f"{video_base.name}.srt")
+    if not generated_subtitle.is_file():
         raise RuntimeError(
-            f"transcription did not create the expected file: {subtitle_file}"
+            f"transcription did not create the expected file: {generated_subtitle}"
         )
 
+    subtitle_suffix = source_language or "transcript"
+    subtitle_file = video_base.with_name(f"{video_base.name}.{subtitle_suffix}.srt")
+    generated_subtitle.replace(subtitle_file)
     run([sys.executable, str(PADDING_SERVICE), str(subtitle_file), str(subtitle_file)])
     transcript_file = video_base.with_name(f"{video_base.name}.transcript.json")
     if transcript_file.exists():
@@ -31,12 +38,19 @@ def create_source_subtitle(video_file, video_base):
     return subtitle_file
 
 
-def embed_subtitles(video_file, source_subtitle, english_subtitle):
+def embed_subtitles(video_file, source_subtitle, english_subtitle, source_language):
     output_file = video_file.with_suffix(".mkv")
     if output_file != video_file and output_file.exists():
         raise FileExistsError(
             f"cannot embed subtitles: output file already exists: {output_file}"
         )
+    source_track_metadata = []
+    if source_language:
+        source_track_language = {"jp": "jpn", "zh": "zho"}[source_language]
+        source_track_metadata = [
+            "-metadata:s:s:0",
+            f"language={source_track_language}",
+        ]
 
     temporary_file = None
     try:
@@ -79,6 +93,7 @@ def embed_subtitles(video_file, source_subtitle, english_subtitle):
                 "copy",
                 "-c:s",
                 "srt",
+                *source_track_metadata,
                 "-metadata:s:s:0",
                 "title=Original",
                 "-metadata:s:s:1",
@@ -100,16 +115,21 @@ def embed_subtitles(video_file, source_subtitle, english_subtitle):
     print(f"Embedded source and English subtitles in: {output_file}")
 
 
-def run_workflow(video_file):
+def run_workflow(video_file, source_language):
     if not video_file.is_file():
         raise ValueError(f"video file does not exist: {video_file}")
 
     video_base = video_file.with_suffix("")
-    print("Transcribing video with elevate's automatic language detection.")
-    source_subtitle = create_source_subtitle(video_file, video_base)
+    if source_language:
+        print(f"Transcribing video in {source_language}.")
+    else:
+        print("Transcribing video with automatic language detection.")
+    source_subtitle = create_source_subtitle(
+        video_file, video_base, source_language
+    )
 
     english_subtitle = video_base.with_name(f"{video_base.name}.en.srt")
-    print("Translating detected-language subtitles into English with Ollama.")
+    print("Translating source-language subtitles into English with Ollama.")
     run(
         [
             sys.executable,
@@ -118,14 +138,24 @@ def run_workflow(video_file):
             str(english_subtitle),
         ]
     )
-    embed_subtitles(video_file, source_subtitle, english_subtitle)
+    embed_subtitles(
+        video_file, source_subtitle, english_subtitle, source_language
+    )
+    source_subtitle.unlink()
+    english_subtitle.unlink()
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("video_file", type=Path)
+    parser.add_argument(
+        "source_language",
+        choices=("jp", "zh"),
+        nargs="?",
+        help="optional source subtitle language code (jp or zh)",
+    )
     args = parser.parse_args()
-    run_workflow(args.video_file.expanduser().resolve())
+    run_workflow(args.video_file.expanduser().resolve(), args.source_language)
 
 
 if __name__ == "__main__":
