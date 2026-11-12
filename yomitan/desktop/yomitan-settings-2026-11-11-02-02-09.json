@@ -1,6 +1,6 @@
 {
     "version": 0,
-    "date": "2026-11-10 00:45:05",
+    "date": "2026-11-11 02:02:09",
     "url": "moz-extension://d01fdb2e-3094-43f5-9bea-56588c49852c/",
     "manifest": {
         "author": "Yomidevs",
@@ -25,7 +25,7 @@
         "manifest_version": 3,
         "name": "Yomitan Popup Dictionary",
         "short_name": null,
-        "version": "26.10.22.0",
+        "version": "26.11.2.0",
         "background": {
             "page": "moz-extension://d01fdb2e-3094-43f5-9bea-56588c49852c/background.html",
             "preferred_environment": null,
@@ -170,14 +170,15 @@
             "default_title": "Yomitan",
             "theme_icons": null
         },
+        "builtin_widget": null,
         "devtools_page": null,
         "omnibox": {
             "keyword": "yomi"
         },
         "page_action": null,
         "sidebar_action": null,
-        "declarative_net_request": null,
         "chrome_url_overrides": null,
+        "declarative_net_request": null,
         "default_locale": null,
         "l10n_resources": null,
         "protocol_handlers": null,
@@ -204,7 +205,7 @@
             "os": "linux"
         }
     },
-    "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:159.0) Gecko/20100101 Firefox/159.0",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:160.0) Gecko/20100101 Firefox/160.0",
     "permissions": {
         "origins": [
             "<all_urls>",
@@ -534,9 +535,7 @@
                     "anki": {
                         "enable": true,
                         "server": "http://127.0.0.1:8765",
-                        "tags": [
-                            "yomitan"
-                        ],
+                        "tags": [],
                         "screenshot": {
                             "format": "png",
                             "quality": 92

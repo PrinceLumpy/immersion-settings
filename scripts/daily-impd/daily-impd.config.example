@@ -1,0 +1,12 @@
+# Required: directory where videos and subtitles will be saved
+destination=/path/to/active-immersion
+
+# Required: playlist IDs (the value after list= in each playlist URL)
+japanese_playlist_id=YOUR_JAPANESE_PLAYLIST_ID
+chinese_playlist_id=YOUR_CHINESE_PLAYLIST_ID
+
+# Optional settings and their defaults:
+# download_history=.daily-impd-history.json
+# ollama_model=qwen2.5:7b
+# ollama_host=http://localhost:11434
+# yt_dlp_sort=res:480,vcodec:vp9,acodec:aac,ext:mkv

@@ -1,1 +1,4 @@
 repos/*
+scripts/daily-impd/.daily-impd-history.json
+scripts/daily-impd/daily-impd.config
+__pycache__
