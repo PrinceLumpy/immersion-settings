@@ -5,7 +5,6 @@ import os
 import re
 import sys
 from pathlib import Path
-from urllib.parse import urlsplit
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent.parent
@@ -17,11 +16,23 @@ REQUIRED_SETTINGS = (
 )
 OPTIONAL_DEFAULTS = {
     "download_history": ".daily-impd-history.json",
-    "ollama_model": "qwen2.5:7b",
-    "ollama_host": "http://localhost:11434",
+    "openrouter_model": "openrouter/free",
     "yt_dlp_sort": "res:480,vcodec:vp9,acodec:aac,ext:mkv",
 }
-ALLOWED_SETTINGS = set(REQUIRED_SETTINGS) | set(OPTIONAL_DEFAULTS)
+OPTIONAL_SETTINGS = {
+    "openrouter_api_key",
+    "OPENROUTER_API_KEY",
+    "gemini_api_key",
+    "GEMINI_API_KEY",
+}
+LEGACY_DEFAULTS = {
+    "ollama_model": "qwen2.5:7b",
+    "ollama_host": "http://localhost:11434",
+    "claude_model": "claude-sonnet-5-5",
+    "gemini_model": "gemini-3.5-flash-lite",
+}
+ALL_DEFAULTS = {**OPTIONAL_DEFAULTS, **LEGACY_DEFAULTS}
+ALLOWED_SETTINGS = set(REQUIRED_SETTINGS) | set(ALL_DEFAULTS) | OPTIONAL_SETTINGS
 PLAYLIST_ID = re.compile(r"^[A-Za-z0-9_-]+$")
 
 
@@ -71,22 +82,8 @@ def read_settings(path):
         if not PLAYLIST_ID.fullmatch(value) or value.startswith("YOUR_"):
             raise ValueError(f"{name} must be a playlist ID, not a URL or placeholder")
 
-    for name, default in OPTIONAL_DEFAULTS.items():
+    for name, default in ALL_DEFAULTS.items():
         settings.setdefault(name, default)
-
-    host = urlsplit(settings["ollama_host"])
-    try:
-        valid_host = (
-            host.scheme in {"http", "https"}
-            and host.hostname is not None
-            and host.username is None
-            and host.password is None
-        )
-        host.port
-    except ValueError:
-        valid_host = False
-    if not valid_host:
-        raise ValueError("ollama_host must be an HTTP(S) URL without credentials")
 
     return settings
 

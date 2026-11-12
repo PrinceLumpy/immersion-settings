@@ -65,7 +65,7 @@ download_video() {
 }
 
 main() {
-  local video_id download_output video_file
+  local video_id download_output video_file video_url
 
   load_configuration
   select_todays_playlist
@@ -78,6 +78,7 @@ main() {
   fi
 
   echo "Downloading video $video_id from the selected playlist."
+  video_url="https://www.youtube.com/watch?v=$video_id"
   download_output="$(download_video "$video_id")"
   video_file="${download_output##*$'\n'}"
   if [[ ! -f "$video_file" ]]; then
@@ -87,14 +88,16 @@ main() {
 
   IMPD_CONFIG="$CONFIG_FILE" python3 \
     "$SERVICES_DIR/subtitles/subtitle_workflow.py" \
-    "$video_file" \
-    "$SOURCE_LANGUAGE"
+    "$video_file" "$SOURCE_LANGUAGE" --youtube-url "$video_url"
 
   # Record only fully processed videos so a failed run retries the same video.
+  echo "Recording video $video_id in download history."
   python3 "$SERVICES_DIR/playlist_history.py" mark \
     "$PLAYLIST_ID" "$video_id" "$HISTORY_FILE"
 
+  echo "Running impd rotate."
   impd rotate
+  echo "Daily immersion workflow completed."
 }
 
 main "$@"
