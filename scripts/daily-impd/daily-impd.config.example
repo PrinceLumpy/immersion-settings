@@ -1,4 +1,4 @@
-# Required: directory where videos and subtitles will be saved
+# Required: directory where downloaded videos will be saved
 destination=/path/to/active-immersion
 
 # Required: playlist IDs (the value after list= in each playlist URL)
@@ -7,6 +7,3 @@ chinese_playlist_id=YOUR_CHINESE_PLAYLIST_ID
 
 # Optional settings and their defaults:
 # download_history=.daily-impd-history.json
-# openrouter_model=openrouter/free
-# openrouter_api_key=your-openrouter-api-key
-# yt_dlp_sort=res:480,vcodec:vp9,acodec:aac,ext:mkv
