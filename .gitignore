@@ -1,4 +1,6 @@
 repos/*
+!repos/subtitle-scripts/
 scripts/daily-impd/.daily-impd-history.json
 scripts/daily-impd/daily-impd.config
+scripts/generate-subs/subtitle.config
 __pycache__

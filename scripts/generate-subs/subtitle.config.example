@@ -1,0 +1,5 @@
+# Required: OpenRouter API key
+openrouter_api_key=YOUR_OPENROUTER_API_KEY
+
+# Optional: defaults to openrouter/free
+# openrouter_model=openrouter/free
