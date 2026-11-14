@@ -68,7 +68,6 @@ main() {
     return 0
   fi
   echo "Downloading video $video_id from the selected playlist."
-  echo "Downloading video $video_id from the selected playlist."
   download_video "$video_id"
 
   # Record only successful downloads so a failed run retries the same video.
@@ -76,8 +75,10 @@ main() {
   python3 "$SERVICES_DIR/playlist_history.py" mark \
     "$PLAYLIST_ID" "$video_id" "$HISTORY_FILE"
 
-  echo "Running impd rotate."
-  impd rotate
+  echo "Adding the recent video to immersion."
+  impd add --recent
+  echo "Archiving completed immersion."
+  impd archive
   echo "Daily immersion workflow completed."
 }
 

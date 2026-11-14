@@ -2,7 +2,7 @@
 
 `immersion-daily.sh` downloads the first unprocessed video from one of two
 YouTube playlists using the regular yt-dlp configuration, then runs
-`impd rotate`.
+`impd add --recent` and `impd archive`.
 
 ## Configuration
 
@@ -39,7 +39,8 @@ rotation. The Python helpers live in `scripts/daily-impd/services/`:
 
 - Python 3
 - `yt-dlp`, for downloading the daily video
-- The `impd` command, used at the end of the daily script
+- The `impd` command, used to add the recent video and archive completed
+  immersion at the end of the daily script
 
 ## Install and configure `yt-dlp`
 
@@ -90,4 +91,5 @@ bash "scripts/daily-impd/immersion-daily.sh"
 
 Each run selects the day's playlist, downloads its first unprocessed video
 using yt-dlp's regular configuration, records the video in local history after
-the download succeeds, and runs `impd rotate`.
+the download succeeds, then runs `impd add --recent` followed by
+`impd archive`.
