@@ -13,9 +13,11 @@ Automatic sentence mining has limits. It cannot distinguish different uses
 of the same words.
 It only pays attention to words, so it will miss structurally unfamiliar
 sentences of words that you already know.
-Its segmentation may also disagree with Yomitan's dictionary. For
-example, jieba may treat `一键` as one word while Yomitan looks up the
-characters separately, making automatic backfill unreliable.
+The auto-miner can be configured with the same CC-CEDICT source used by
+Yomitan. It uses both traditional and simplified headwords to validate
+candidates, while keeping Jieba's context-sensitive segmentation and
+disabling HMM guessing. Tokens that do not match are split against the
+dictionary where possible; tokens without dictionary matches are omitted.
 
 Automation can still help on days when you are tired or do not enjoy the
 content, when manual mining feels like too much effort. It is probably best

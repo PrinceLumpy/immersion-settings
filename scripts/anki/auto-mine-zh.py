@@ -8,6 +8,8 @@ Read a subs2srs TSV, find words you don't know yet, and create new notes:
     SentEng:    It depends on our native language and the languages we know
 
 Setup:  pip install jieba
+        Set cedict_path in auto-mine-zh.config.json to your CC-CEDICT text file.
+        Audio defaults to the matching .media folder beside the TSV.
         Anki open with the AnkiConnect add-on (code 2055492159)
         Settings: auto-mine-zh.config.json next to this script
         Audio referenced by the TSV is imported into Anki on non-dry runs.
@@ -28,11 +30,51 @@ from pathlib import Path
 import jieba.posseg as pseg
 
 CONFIG_PATH = Path(__file__).with_name("auto-mine-zh.config.json")
+CEDICT_ENTRY = re.compile(r"^(\S+)\s+(\S+)\s+\[")
 SKIP_FLAGS = {"x", "w", "u", "p", "c", "r", "m", "q", "y", "e", "o", "h", "k",
               "eng", "nr", "ns", "nt", "nz", "t", "zg", "uj", "ul", "uz", "ud"}
 HAS_HANZI = re.compile(r"[一-鿿]")
 TAG = re.compile(r"<[^>]+>")
 SOUND = re.compile(r"\[sound:([^\]]+)\]")
+
+
+def load_cedict(path):
+    """Load CC-CEDICT traditional and simplified headwords for validation."""
+    words = set()
+    with path.open(encoding="utf-8-sig") as f:
+        for line in f:
+            match = CEDICT_ENTRY.match(line)
+            if match:
+                words.update(match.groups())
+
+    if not words:
+        raise ValueError(f"No CC-CEDICT entries found in {path}")
+
+    return words
+
+
+def split_to_cedict_words(token, dictionary_words):
+    """Split an unknown token to maximize the characters covered by dictionary words."""
+    best = [(0, 0, []) for _ in range(len(token) + 1)]
+    for start in range(len(token) - 1, -1, -1):
+        suffix_score, suffix_count, suffix_parts = best[start + 1]
+        best[start] = (
+            suffix_score,
+            suffix_count,
+            [(token[start], False), *suffix_parts],
+        )
+        for end in range(len(token), start, -1):
+            word = token[start:end]
+            if word not in dictionary_words:
+                continue
+            suffix_score, suffix_count, suffix_parts = best[end]
+            score = (suffix_score + len(word), suffix_count - 1)
+            if score > best[start][:2]:
+                best[start] = (
+                    *score,
+                    [(word, True), *suffix_parts],
+                )
+    return best[0][2]
 
 
 def load_config():
@@ -58,7 +100,27 @@ def load_config():
 def audio_source_dir(config, tsv_path):
     source_dir = config.get("audio_source_dir")
     if source_dir is None:
-        return Path(tsv_path).resolve().parent
+        tsv_path = Path(tsv_path).resolve()
+        parent = tsv_path.parent
+        media_dirs = [
+            path for path in parent.iterdir()
+            if path.is_dir() and path.name.endswith(".media")
+        ]
+        matching = [
+            path for path in media_dirs
+            if (tsv_path.stem == path.stem
+                or tsv_path.stem.startswith((path.stem + "_", path.stem + "-", path.stem + " ")))
+        ]
+        if matching:
+            return max(matching, key=lambda path: len(path.name))
+        if len(media_dirs) == 1:
+            return media_dirs[0]
+        if len(media_dirs) > 1:
+            names = ", ".join(path.name for path in media_dirs)
+            raise ValueError(
+                f"Could not match {tsv_path.name} to a .media folder in {parent}; "
+                f"set audio_source_dir in {CONFIG_PATH}. Found: {names}")
+        return parent
     path = Path(source_dir).expanduser()
     return path if path.is_absolute() else CONFIG_PATH.parent / path
 
@@ -111,12 +173,23 @@ def clean(text):
     return TAG.sub("", SOUND.sub("", text)).replace("&nbsp;", " ").strip()
 
 
-def process_sentence(sentence, min_len):
-    """Return {word: bolded_sentence}, first occurrence of each word only."""
-    segs = [(w.word, w.flag) for w in pseg.cut(sentence)]
+def process_sentence(sentence, min_len, dictionary_words):
+    """Return dictionary-backed candidates, first occurrence of each word only."""
+    segs = []
+    for item in pseg.cut(sentence, HMM=False):
+        word, flag = item.word, item.flag
+        if word in dictionary_words:
+            segs.append((word, flag))
+            continue
+        segs.extend(
+            (part, "x" if is_dictionary_word else "")
+            for part, is_dictionary_word in split_to_cedict_words(word, dictionary_words)
+        )
+
     found = {}
     for i, (word, flag) in enumerate(segs):
-        if word in found or flag in SKIP_FLAGS or flag[:1] in {"x", "w"}:
+        if (word in found or word not in dictionary_words
+                or (flag in SKIP_FLAGS and flag != "x") or flag[:1] == "w"):
             continue
         if len(word) < min_len or not HAS_HANZI.search(word):
             continue
@@ -169,10 +242,20 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tsv", help="subs2srs TSV file")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--cedict", help="CC-CEDICT text file (overrides cedict_path in config)")
     args = ap.parse_args()
     config = load_config()
     fields = config["fields"]
     anki_url = config["anki_connect_url"]
+
+    cedict_path = args.cedict or config.get("cedict_path")
+    if not cedict_path:
+        raise ValueError("Set cedict_path in the config or pass --cedict")
+    cedict_path = Path(cedict_path).expanduser()
+    if not cedict_path.is_absolute():
+        cedict_path = CONFIG_PATH.parent / cedict_path
+    dictionary_words = load_cedict(cedict_path)
+    print(f"{len(dictionary_words)} CC-CEDICT headwords loaded from {cedict_path}")
 
     # Words you already have
     known = set()
@@ -190,7 +273,8 @@ def main():
     # word -> [(plain_len, bolded, audio, English subtitle)]
     cands = defaultdict(list)
     for sent, audio, eng in source:
-        for word, bolded in process_sentence(sent, config["min_word_length"]).items():
+        sentence_words = process_sentence(sent, config["min_word_length"], dictionary_words)
+        for word, bolded in sentence_words.items():
             if word not in known:
                 cands[word].append((len(sent), bolded, audio, eng))
 

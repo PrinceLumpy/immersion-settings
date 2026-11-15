@@ -9,7 +9,8 @@
     "english": "SentEng"
   },
   "tags": ["subs2srs-mined"],
-  "min_word_length": 4,
+  "min_word_length": 1,
   "dry_run_preview_count": 25,
+  "cedict_path": "cedict_ts.u8",
   "audio_source_dir": null
 }
