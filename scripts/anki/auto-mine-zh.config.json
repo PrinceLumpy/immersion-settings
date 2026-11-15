@@ -1,0 +1,15 @@
+{
+  "anki_connect_url": "http://127.0.0.1:8765",
+  "deck_name": "Mandarin::TSC",
+  "note_type": "Mandarin-TSC",
+  "fields": {
+    "vocab": "VocabHanzi",
+    "sentence": "SentHanzi",
+    "audio": "SentAudio",
+    "english": "SentEng"
+  },
+  "tags": ["subs2srs-mined"],
+  "min_word_length": 4,
+  "dry_run_preview_count": 25,
+  "audio_source_dir": null
+}
