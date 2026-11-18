@@ -10,6 +10,9 @@ An Anki deck of **10,900 Targeted Sentence Cards** with word and sentence audio.
 - 📚 Card format inspired by AJATT: ([read about Targeted Sentence Cards](https://ajatt.top/blog/discussing-various-card-templates.html#targeted-sentence-cards))
 
 ## Card Template
+![Front of card](https://raw.githubusercontent.com/PrinceLumpy/immersion-settings/master/anki/note-types/Mandarin-HSK-TSC/front.png)
+![Back of card](https://raw.githubusercontent.com/PrinceLumpy/immersion-settings/master/anki/note-types/Mandarin-HSK-TSC/back.png)
+
 
 > 💡 **Tip:** Tap or click the **Reveal English Sentence** hint button to reveal the English translation, or **Note** to reveal your notes.
 
