@@ -10,6 +10,11 @@
 {{VocabAudio}}{{^VocabAudio}}{{tts zh_CN:VocabHanzi}}{{/VocabAudio}}
 {{SentAudio}}{{^SentAudio}}{{tts zh_CN:SentHanzi}}{{/SentAudio}}
 
+<footer>
+  <a href="plecoapi://x-callback-url/s?q={{VocabHanzi}}">Pleco</a>
+  <a href="https://contextualchinese.com/{{VocabHanzi}}">Contextual Chinese</a>
+  <a href="https://baike.baidu.com/item/{{VocabHanzi}}">Baidu</a>
+</footer>
 
 
 <script>
@@ -88,16 +93,18 @@
   var p = document.getElementById('py');
   var targets = document.querySelectorAll('#s b');
   var pinyin = p.textContent.trim().replace(/\s+/g, '');
-  var wordLength = targets.length ? [...targets[0].textContent.trim()].length : 0;
+  var wordLength = [...targets].reduce((length, target) =>
+    length + [...target.textContent.trim()].length, 0);
   var syllables = splitUnspacedPinyin(pinyin, wordLength);
   p.innerHTML = syllables.map(s =>
     '<span class="t'+s.tone+'">'+s.text+'</span>'
   ).join(' ');
   var tones = syllables.map(s => s.tone);
+  var toneIndex = 0;
   targets.forEach(function(target){
     var hz = [...target.textContent.trim()];
     target.innerHTML = hz.map((c,i) =>
-      '<span class="t'+tones[i]+'">'+c+'</span>'
+      '<span class="t'+tones[toneIndex++]+'">'+c+'</span>'
     ).join('');
   });
 })();

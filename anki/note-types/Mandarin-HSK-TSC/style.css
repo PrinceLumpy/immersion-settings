@@ -1,30 +1,26 @@
+.card { 
+  font-size: 22px; 
+  text-align: center; 
+  font-family: "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+  --text2:#706f6a;
+}
+
 .meaning {
   text-align: center;
   display: block;
   margin-top:8px;
 }
 
-hr {
-  border: 0;
-  height: 0;
-  border-bottom: 1px solid var(--surface4);
-}
 
-body {background-color:var(--surface2) !important;}
-
-body,
-.card {
-    --surface2:#1a1915;
-    --surface4:#2e2c24;
-    --text2:#706f6a;
-}
-
-.card { font-size: 22px; text-align: center; }
+#s { font-size: 30px; line-height: 1.1; }
 #s b { color: var(--text2); font-weight: 700; }
+
 #py { font-size: 1.1em; }
+
 a.hint {
   color: var(--text2);
   font-size: 13px; 
+  text-decoration: none;
 }
 
 .hint-container {
@@ -50,3 +46,22 @@ div.hint * {
 .t3 { color: #8080ff; }
 .t4 { color: #df80ff; }
 .t5 { color: var(--text2); }
+
+
+/* footer and links */
+footer > a {
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #a52a2a;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+footer > a:not(:last-child)::after {
+    content: "·";
+    color: #a52a2a;
+    display: inline-block;
+    padding: 0 2px;
+    margin-left: 8px;
+}

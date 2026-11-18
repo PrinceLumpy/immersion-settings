@@ -6,6 +6,12 @@
   {{Image}}
   {{#SentEng}}<div>{{hint:SentEng}}</div>{{/SentEng}}
 </div>
-<hr>
+<br>
 {{VocabAudio}}{{^VocabAudio}}{{tts zh_CN:VocabHanzi}}{{/VocabAudio}}
 {{SentAudio}}{{^SentAudio}}{{tts zh_CN:SentHanzi}}{{/SentAudio}}
+<hr>
+<footer>
+  <a href="https://contextualchinese.com/{{VocabHanzi}}">Contextual Chinese</a>
+  <a href="https://baike.baidu.com/item/{{VocabHanzi}}">Baidu</a>
+  <a href="plecoapi://x-callback-url/s?q={{VocabHanzi}}">Pleco</a>
+</footer>

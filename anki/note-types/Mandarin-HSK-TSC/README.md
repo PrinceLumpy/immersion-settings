@@ -1,6 +1,5 @@
-# 10,900 Targeted Sentence Cards (Mandarin)
-
 An Anki deck of **10,900 Targeted Sentence Cards** with word and sentence audio.
+Can also be downloaded [here](https://ankiweb.net/shared/info/571985447)
 
 ## Features
 
@@ -10,7 +9,10 @@ An Anki deck of **10,900 Targeted Sentence Cards** with word and sentence audio.
 - 📚 Card format inspired by AJATT: ([read about Targeted Sentence Cards](https://ajatt.top/blog/discussing-various-card-templates.html#targeted-sentence-cards))
 
 ## Card Template
+Front:
 ![Front of card](https://raw.githubusercontent.com/PrinceLumpy/immersion-settings/master/anki/note-types/Mandarin-HSK-TSC/front.png)
+
+Back:
 ![Back of card](https://raw.githubusercontent.com/PrinceLumpy/immersion-settings/master/anki/note-types/Mandarin-HSK-TSC/back.png)
 
 
