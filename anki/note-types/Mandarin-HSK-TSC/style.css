@@ -1,0 +1,52 @@
+.meaning {
+  text-align: center;
+  display: block;
+  margin-top:8px;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-bottom: 1px solid var(--surface4);
+}
+
+body {background-color:var(--surface2) !important;}
+
+body,
+.card {
+    --surface2:#1a1915;
+    --surface4:#2e2c24;
+    --text2:#706f6a;
+}
+
+.card { font-size: 22px; text-align: center; }
+#s b { color: var(--text2); font-weight: 700; }
+#py { font-size: 1.1em; }
+a.hint {
+  color: var(--text2);
+  font-size: 13px; 
+}
+
+.hint-container {
+  display: flex;
+  align-items: center;      /* vertical */
+  justify-content: center;  /* horizontal */
+  min-height: 40px;
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+/* The content of the hint */
+div.hint,
+div.hint * {
+  color: var(--text2, #7c7666) !important;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.t1 { color: #ff8080; }
+.t2 { color: #80ff80; }
+.t3 { color: #8080ff; }
+.t4 { color: #df80ff; }
+.t5 { color: var(--text2); }
