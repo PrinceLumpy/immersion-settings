@@ -1,17 +1,111 @@
 {{FrontSide}}
+{{#SentEng}}<div class="hint-container senteng-hint">{{hint:SentEng}}</div>{{/SentEng}}
 <hr>
-<div class="stack">
-  <div class="pronunciation">{{Pinyin}}</div>
-  <div class="meaning">{{VocabDef}}</div>
-  {{Image}}
-  {{#SentEng}}<div>{{hint:SentEng}}</div>{{/SentEng}}
-</div>
-<br>
+<div id="py">{{Pinyin}}</div>
+<div class="meaning">{{VocabDef}}</div>
+{{#Note}}<div class="hint-container">{{hint:Note}}</div>{{/Note}}
+<hr>
+{{Image}}
+{{#Image}}<br>{{/Image}}
 {{VocabAudio}}{{^VocabAudio}}{{tts zh_CN:VocabHanzi}}{{/VocabAudio}}
 {{SentAudio}}{{^SentAudio}}{{tts zh_CN:SentHanzi}}{{/SentAudio}}
-<hr>
+
 <footer>
+  <a href="plecoapi://x-callback-url/s?q={{VocabHanzi}}">Pleco</a>
   <a href="https://contextualchinese.com/{{VocabHanzi}}">Contextual Chinese</a>
   <a href="https://baike.baidu.com/item/{{VocabHanzi}}">Baidu</a>
-  <a href="plecoapi://x-callback-url/s?q={{VocabHanzi}}">Pleco</a>
 </footer>
+
+
+<script>
+(function(){
+  var sentEngLink = document.querySelector('.senteng-hint a.hint');
+  if (sentEngLink)
+    sentEngLink.textContent = 'Reveal English Sentence';
+
+  function tone(s){
+    var d = s.normalize('NFD');
+    return d.indexOf('\u0304')>=0 ? 1 : d.indexOf('\u0301')>=0 ? 2 :
+           d.indexOf('\u030C')>=0 ? 3 : d.indexOf('\u0300')>=0 ? 4 : 5;
+  }
+  var pinyinSyllables = (
+    'a ai an ang ao ba bai ban bang bao bei ben beng bi bian biao bie bin bing bo bu '+
+    'ca cai can cang cao ce cen ceng cha chai chan chang chao che chen cheng chi chong '+
+    'chou chu chua chuai chuan chuang chui chun chuo ci cong cou cu cuan cui cun cuo '+
+    'da dai dan dang dao de dei deng di dia dian diao die ding diu dong dou du duan dui '+
+    'dun duo e ei en er fa fan fang fei fen feng fiao fo fou fu ga gai gan gang gao ge '+
+    'gei gen geng gong gou gu gua guai guan guang gui gun guo ha hai han hang hao he '+
+    'hei hen heng hong hou hu hua huai huan huang hui hun huo ji jia jian jiang jiao '+
+    'jie jin jing jiong jiu ju juan jue jun ka kai kan kang kao ke ken keng kong kou ku '+
+    'kua kuai kuan kuang kui kun kuo la lai lan lang lao le lei leng li lia lian liang '+
+    'liao lie lin ling liu lo long lou lu luan lun luo lv lve m ma mai man mang mao me '+
+    'mei men meng mi mian miao mie min ming miu mo mou mu n na nai nan nang nao ne nei '+
+    'nen neng ni nian niang niao nie nin ning niu nong nou nu nuan nuo nv nve o ou pa '+
+    'pai pan pang pao pei pen peng pi pian piao pie pin ping po pou pu qi qia qian qiang '+
+    'qiao qie qin qing qiong qiu qu quan que qun ran rang rao re ren reng ri rong rou ru '+
+    'ruan rui run ruo sa sai san sang sao se sen seng sha shai shan shang shao she shei '+
+    'shen sheng shi shou shu shua shuai shuan shuang shui shun shuo si song sou su suan '+
+    'sui sun suo ta tai tan tang tao te tei teng ti tian tiao tie ting tong tou tu tuan '+
+    'tui tun tuo u v wa wai wan wang wei wen weng wo wu xi xia xian xiang xiao xie xin '+
+    'xing xiong xiu xu xuan xue xun ya yan yang yao ye yi yin ying yo yong you yu yuan '+
+    'yue yun za zai zan zang zao ze zei zen zeng zha zhai zhan zhang zhao zhe zhen zheng '+
+    'zhi zhong zhou zhu zhua zhuai zhuan zhuang zhui zhun zhuo zi zong zou zu zuan zui '+
+    'zun zuo'
+  ).split(/\s+/).sort((a,b) => b.length - a.length);
+
+  function splitUnspacedPinyin(s, syllableCount){
+    var toneMarks = {'\u0304':1, '\u0301':2, '\u030C':3, '\u0300':4};
+    var units = [];
+    for (const c of s.normalize('NFD').toLowerCase()) {
+      if (toneMarks[c]) {
+        units[units.length - 1].text += c;
+      } else if (c === '\u0308') {
+        units[units.length - 1].base = 'v';
+        units[units.length - 1].text += c;
+      } else if (/[a-z]/.test(c)) {
+        units.push({base:c, text:c});
+      } else if (c === "'" || c === '’' || c === '·' || c === '・' || c === '˙') {
+        continue;
+      }
+    }
+
+    var base = units.map(unit => unit.base).join('');
+    function find(position, remaining) {
+      if (position === base.length) {
+        return remaining === 0 ? [] : null;
+      }
+      if (remaining === 0) return null;
+
+      for (const syllable of pinyinSyllables) {
+        if (!base.startsWith(syllable, position)) continue;
+        var length = syllable.length;
+        var part = units.slice(position, position + length);
+        var text = part.map(unit => unit.text).join('').normalize('NFC');
+        var rest = find(position + length, remaining - 1);
+        if (rest !== null)
+          return [{text:text, tone:tone(text)}].concat(rest);
+      }
+      return null;
+    }
+
+    return find(0, syllableCount);
+  }
+  var p = document.getElementById('py');
+  var targets = document.querySelectorAll('#s b');
+  var pinyin = p.textContent.trim().replace(/\s+/g, '');
+  var wordLength = [...targets].reduce((length, target) =>
+    length + [...target.textContent.trim()].length, 0);
+  var syllables = splitUnspacedPinyin(pinyin, wordLength);
+  p.innerHTML = syllables.map(s =>
+    '<span class="t'+s.tone+'">'+s.text+'</span>'
+  ).join(' ');
+  var tones = syllables.map(s => s.tone);
+  var toneIndex = 0;
+  targets.forEach(function(target){
+    var hz = [...target.textContent.trim()];
+    target.innerHTML = hz.map((c,i) =>
+      '<span class="t'+tones[toneIndex++]+'">'+c+'</span>'
+    ).join('');
+  });
+})();
+</script>

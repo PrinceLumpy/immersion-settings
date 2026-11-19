@@ -1,67 +1,61 @@
-.card {
+.card { 
+  font-size: 22px; 
+  text-align: center; 
   font-family: "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
-  text-align: center;
-}
-
-.sentence {
-  font-size: 30px;
-  line-height: 1.2;
-  color: #c8bfaf;
-  letter-spacing: 0.02em;
-}
-
-.sentence b {
-  color: #ff6b6b;
-  font-weight: 900;
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 107, 107, 0.7);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 6px;
-}
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.pronunciation {
-  font-size: 25px;
-  color: #8a7f72;
-  letter-spacing: 0.08em;
+  --text2:#706f6a;
 }
 
 .meaning {
-  font-size: 25px;
-  color: #e8e0d0;
-  font-style: italic;
+  text-align: center;
+  display: block;
+  margin-top:8px;
 }
 
-/* the "Show Hint" link */
+
+#s { font-size: 30px; line-height: 1.1; }
+#s b { color: var(--text2); font-weight: 700; }
+
+#py { font-size: 1.1em; }
+
 a.hint {
-  color: #4a4540;
-  font-size: 13px;
+  color: var(--text2);
+  font-size: 13px; 
+  text-decoration: none;
 }
 
-/* every revealed hint */
+.hint-container {
+  display: flex;
+  align-items: center;      /* vertical */
+  justify-content: center;  /* horizontal */
+  min-height: 40px;
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+/* The content of the hint */
 div.hint,
 div.hint * {
+  color: var(--text2, #7c7666) !important;
   font-size: 20px;
-  color: #4a4540 !important;
   font-style: italic;
   line-height: 1.4;
 }
 
+.t1 { color: #ff8080; }
+.t2 { color: #80ff80; }
+.t3 { color: #8080ff; }
+.t4 { color: #df80ff; }
+.t5 { color: var(--text2); }
+
+
 /* footer and links */
 footer > a {
+    font-size: 18px;
     text-decoration: none;
     cursor: pointer;
     color: #a52a2a;
     padding: 2px 6px;
     border-radius: 4px;
-}
-
-footer > a:hover {
-    background: rgba(165, 42, 42, 0.15);
 }
 
 footer > a:not(:last-child)::after {

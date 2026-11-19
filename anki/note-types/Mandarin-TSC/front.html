@@ -1,2 +1,12 @@
-{{#SentHanzi}}<div class="sentence">{{SentHanzi}}</div>{{/SentHanzi}}
-{{^SentHanzi}}<div class="sentence"><b>{{VocabHanzi}}</b></div>{{/SentHanzi}}
+<div id="s">{{SentHanzi}}</div>
+<div id="w" style="display:none">{{VocabHanzi}}</div>
+<script>
+(function(){
+  var w = document.getElementById('w').textContent.trim();
+  var s = document.getElementById('s');
+  if (!s.textContent.trim())
+    s.textContent = w;
+  if (w && s.innerHTML.indexOf('<b>') < 0)
+    s.innerHTML = s.innerHTML.split(w).join('<b>' + w + '</b>');
+})();
+</script>
