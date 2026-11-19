@@ -21,9 +21,9 @@ Back:
 
 ## Suggested Usage
 
-- **Pair with a grammar guide.** Read through a (grammar guide)[https://grammar.ajatt.top/] once, then focus on understanding sentences rather than memorizing rules.
+- **Pair with a grammar guide.** Read through a [grammar guide](https://grammar.ajatt.top/) once, then focus on understanding sentences rather than memorizing rules.
 - **Pace yourself.** I recommend learning **5–10 new words a day**.
-- **Prioritize sentence mining.** Start sentence mining immediately. Set up [mpvacious](https://github.com/Ajatt-Tools/mpvacious) and [Yomitan](https://yomitan.wiki/) to mine content you choose. This deck supplements your learning with words you may not have encountered in your mining workflow.
+- **Prioritize sentence mining.** Start sentence mining as soon as possible. Set up [mpvacious](https://github.com/Ajatt-Tools/mpvacious) and [Yomitan](https://yomitan.wiki/) to mine content you choose. This deck supplements your learning with words you may not have encountered in your mining workflow.
 - **Recognition only.** This deck is built for recognition, not production. It is designed with Stephen Krashen's input hypothesis in mind. I highly recommend [this video](https://www.youtube.com/watch?v=J_EQDtpYSNM) on why comprehensible input is key.
 
 ## 💭 Thoughts on Prebuilt Decks
